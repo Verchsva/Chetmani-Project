@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "180466598974",
+    "firebase_url": "https://chetmani-jewellers.firebaseio.com",
+    "project_id": "chetmani-jewellers",
+    "storage_bucket": "chetmani-jewellers.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:180466598974:android:73dccf28acadb978eb7d6f",
+        "android_client_info": {
+          "package_name": "com.example.splashscreenwithlogin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "180466598974-ggfqe9ucand4co9r9dqchs9cqo3a2id7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.splashscreenwithlogin",
+            "certificate_hash": "330863853f313037dd5450164ea178e2f999bd25"
+          }
+        },
+        {
+          "client_id": "180466598974-q9cqk5g76mv1v1ell4qklda8tdk31ptg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZCNXo_cCHSxyzzfMlAqOI-UvJQiV64Uo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "180466598974-q9cqk5g76mv1v1ell4qklda8tdk31ptg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
