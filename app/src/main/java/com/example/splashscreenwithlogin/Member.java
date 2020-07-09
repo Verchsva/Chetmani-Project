@@ -5,7 +5,7 @@ public class Member {
     private String Name;
     private String cmpName;
     private String City;
-    private Number mbNumber;
+    private String mbNumber;
 
     public Member() {
     }
@@ -34,11 +34,11 @@ public class Member {
         City = city;
     }
 
-    public Number getMbNumber() {
+    public String getMbNumber() {
         return mbNumber;
     }
 
-    public void setMbNumber(Number mbNumber) {
+    public void setMbNumber(String mbNumber) {
         this.mbNumber = mbNumber;
     }
 }

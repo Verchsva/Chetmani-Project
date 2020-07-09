@@ -37,18 +37,17 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         Member();
     }
     public void Member(){
-        int pnumber=Integer.parseInt(mbnumber.getText().toString().trim());
+
 
         member.setName(txtname.getText().toString().trim());
         member.setCmpName(txtcmpname.getText().toString().trim());
         member.setCity(txtcity.getText().toString().trim());
-        member.setMbNumber(pnumber);
+        member.setMbNumber(mbnumber.getText().toString().trim());
 
         reff.push().setValue(member);
-        Toast.makeText(Login.this,"Data inserted",Toast.LENGTH_LONG).show();
     }
     public void openActivity2() {
-        Intent intent=new Intent(this,Homepage.class);
+        Intent intent=new Intent(this,tab1home.class);
         startActivity(intent);
     }
 

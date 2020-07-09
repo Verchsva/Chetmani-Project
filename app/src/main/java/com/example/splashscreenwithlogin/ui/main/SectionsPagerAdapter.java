@@ -9,6 +9,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.example.splashscreenwithlogin.R;
+import com.example.splashscreenwithlogin.tab1home;
+import com.example.splashscreenwithlogin.tab2home;
 
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
@@ -27,15 +29,27 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        // getItem is called to instantiate the fragment for the given page.
-        // Return a PlaceholderFragment (defined as a static inner class below).
-        return PlaceholderFragment.newInstance(position + 1);
+       Fragment fragment = null;
+       switch (position) {
+           case 0:
+               fragment = new tab1home();
+               break;
+           case 1:
+               fragment = new tab2home();
+       }
+       return fragment;
     }
 
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
-        return mContext.getResources().getString(TAB_TITLES[position]);
+        switch (position) {
+            case 0:
+                return "Live Bhaw";
+            case 1:
+                return "Gallery";
+        }
+        return null;
     }
 
     @Override

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constraintLayout"
@@ -45,31 +45,32 @@
         android:layout_height="wrap_content"
         android:paddingTop="270dp">
 
-        <TableRow
-            android:background="#ffffff"
-            android:layout_width="match_parent"
-            android:layout_height="15dp">
+    <TableRow
+        android:background="#ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="15dp">
 
-            <TextView
-                android:id="@+id/tableHeading"
-                android:layout_width="225dp"
-                android:layout_height="84dp"
-                android:text="99.99 NUMBER"
-                android:textAlignment="center"
-                android:paddingTop="25dp"
-                android:textColor="#000000"
-                android:textSize="25sp"
-                android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/tableHeading1"
+            android:layout_width="225dp"
+            android:layout_height="84dp"
+            android:text="99.50 BREAD"
+            android:textAlignment="center"
+            android:paddingTop="25dp"
+            android:textColor="#000000"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            />
 
-            <TextView
-                android:id="@+id/tableId"
-                android:paddingLeft="50dp"
-                android:text="Rs. 49300"
-                android:textSize="25sp"
-                android:textColor="#000000"
-                android:textStyle="bold"
-                />
-        </TableRow>
+        <TextView
+            android:id="@+id/tableId1"
+            android:paddingLeft="50dp"
+            android:text="Rs. 49300"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            />
+    </TableRow>
     </TableLayout>
 
     <TableLayout
@@ -166,4 +167,4 @@
         </TableRow>
     </TableLayout>
 
-</LinearLayout>
+</RelativeLayout>
