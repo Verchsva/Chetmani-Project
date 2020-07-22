@@ -13,32 +13,33 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class Login extends AppCompatActivity implements View.OnClickListener {
-      EditText txtname,txtcmpname,txtcity,mbnumber;
-      Button button;
-      DatabaseReference reff;
-      Member member;
+    EditText txtname, txtcmpname, txtcity, mbnumber;
+    Button button;
+    DatabaseReference reff;
+    Member member;
     private SharedPref sharedPref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        txtname=(EditText)findViewById(R.id.txtName);
-        txtcmpname=(EditText)findViewById(R.id.txtCmpName);
-        txtcity=(EditText)findViewById(R.id.txtCity);
-        mbnumber=(EditText)findViewById(R.id.mbNumber);
-        Button btnLogin=findViewById(R.id.btnLogin);
-        member=new Member();
+        txtname = (EditText) findViewById(R.id.txtName);
+        txtcmpname = (EditText) findViewById(R.id.txtCmpName);
+        txtcity = (EditText) findViewById(R.id.txtCity);
+        mbnumber = (EditText) findViewById(R.id.mbNumber);
+        Button btnLogin = findViewById(R.id.btnLogin);
+        member = new Member();
         btnLogin.setOnClickListener(this);
-        reff=FirebaseDatabase.getInstance().getReference().child("Member");
-sharedPref = SharedPref.getInstance(this);
+        reff = FirebaseDatabase.getInstance().getReference().child("Member");
+        sharedPref = SharedPref.getInstance(this);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        if (sharedPref.isUserRegistered()){
+        if (sharedPref.isUserRegistered()) {
             openActivity2();
+            finish();
         }
     }
 
@@ -46,35 +47,41 @@ sharedPref = SharedPref.getInstance(this);
     public void onClick(View view) {
 
         String trim = txtname.getText().toString().trim();
-        if (trim.isEmpty()){
-            Toast.makeText(this,"Enter Name", Toast.LENGTH_SHORT).show();
-            return;}
+        if (trim.isEmpty()) {
+            Toast.makeText(this, "Enter Name", Toast.LENGTH_SHORT).show();
+            return;
+        }
         String trm = txtcmpname.getText().toString().trim();
-        if (trm.isEmpty()){
-            Toast.makeText(this,"Enter Company Name", Toast.LENGTH_SHORT).show();
-            return;}
+        if (trm.isEmpty()) {
+            Toast.makeText(this, "Enter Company Name", Toast.LENGTH_SHORT).show();
+            return;
+        }
         String tri = txtcity.getText().toString().trim();
-        if (tri.isEmpty()){
-            Toast.makeText(this,"Enter Your City", Toast.LENGTH_SHORT).show();
-            return;}
+        if (tri.isEmpty()) {
+            Toast.makeText(this, "Enter Your City", Toast.LENGTH_SHORT).show();
+            return;
+        }
         String t = mbnumber.getText().toString().trim();
-        if (t.isEmpty()){
-            Toast.makeText(this,"Enter Phone Number", Toast.LENGTH_SHORT).show();
-            return;}
+        if (t.isEmpty()) {
+            Toast.makeText(this, "Enter Phone Number", Toast.LENGTH_SHORT).show();
+            return;
+        }
         openActivity2();
         Member();
-      }
-    public void Member(){
+    }
+
+    public void Member() {
         member.setName(txtname.getText().toString().trim());
         member.setCmpName(txtcmpname.getText().toString().trim());
         member.setCity(txtcity.getText().toString().trim());
         member.setMbNumber(mbnumber.getText().toString().trim());
         reff.push().setValue(member);
-sharedPref.setUserRegistered(true);
-        Toast.makeText(Login.this,"Namaskar",Toast.LENGTH_LONG).show();
+        sharedPref.setUserRegistered(true);
+        Toast.makeText(Login.this, "Namaskar", Toast.LENGTH_LONG).show();
     }
-    public void openActivity2(){
-        Intent intent= new Intent(this,Homepage.class);
+
+    public void openActivity2() {
+        Intent intent = new Intent(this, Homepage.class);
         startActivity(intent);
     }
 }
