@@ -4,15 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
+    android:background="@drawable/main"
     android:gravity="center"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    >
 
     <ImageView
         android:id="@+id/img"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:src="@drawable/cmj_logo"
+        android:src="@drawable/cm"
         android:layout_gravity="center"/>
 
 </LinearLayout>

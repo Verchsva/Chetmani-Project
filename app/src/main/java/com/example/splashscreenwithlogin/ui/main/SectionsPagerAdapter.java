@@ -9,8 +9,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.example.splashscreenwithlogin.R;
-import com.example.splashscreenwithlogin.tab1home;
-import com.example.splashscreenwithlogin.tab2home;
+import com.example.splashscreenwithlogin.ftab;
+import com.example.splashscreenwithlogin.gtab;
 
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
@@ -29,25 +29,29 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-       Fragment fragment = null;
-       switch (position) {
-           case 0:
-               fragment = new tab1home();
-               break;
-           case 1:
-               fragment = new tab2home();
-       }
-       return fragment;
+        switch (position){
+            case 0:
+                ftab ftab= new ftab();
+                return ftab;
+            case 1:
+                gtab gtab= new gtab();
+                return gtab;
+
+                default:
+                    return null;
+        }
+
     }
 
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
-        switch (position) {
+        switch (position){
             case 0:
-                return "Live Bhaw";
+                return "LIVE BHAW";
             case 1:
-                return "Gallery";
+                return "GALLERY";
+
         }
         return null;
     }
@@ -57,4 +61,6 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         // Show 2 total pages.
         return 2;
     }
+
+
 }

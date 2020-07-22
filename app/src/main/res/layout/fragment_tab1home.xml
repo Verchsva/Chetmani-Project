@@ -1,170 +1,178 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.PlaceholderFragment"
-    android:background="@drawable/bgtab">
-
-    <TextView
-        android:id="@+id/section_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
-
-    <ViewFlipper
-        android:id="@+id/slide_show"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        />
-
-    <TextView
-        android:id="@+id/news_feed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="475dp"
-        android:ellipsize="marquee"
-        android:marqueeRepeatLimit="marquee_forever"
-        android:scrollHorizontally="true"
-        android:singleLine="true"
-        android:text="हमारी दुकान प्रत्येक मंगलवार, गुरुवार, शनिवार को खोली जाती है|"
-        android:textStyle="bold"
-        android:background="#ffffff"
-        android:textSize="25sp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
-
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="270dp">
-
-    <TableRow
-        android:background="#ffffff"
-        android:layout_width="match_parent"
-        android:layout_height="15dp">
-
-        <TextView
-            android:id="@+id/tableHeading1"
-            android:layout_width="225dp"
-            android:layout_height="84dp"
-            android:text="99.50 BREAD"
-            android:textAlignment="center"
-            android:paddingTop="25dp"
-            android:textColor="#000000"
-            android:textSize="25sp"
-            android:textStyle="bold"
-            />
-
-        <TextView
-            android:id="@+id/tableId1"
-            android:paddingLeft="50dp"
-            android:text="Rs. 49300"
-            android:textSize="25sp"
-            android:textStyle="bold"
-            android:textColor="#000000"
-            />
-    </TableRow>
-    </TableLayout>
-
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="360dp">
-
-        <TableRow
-            android:background="#ffffff"
+    android:background="@drawable/bm"
+    >
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="15dp">
+            android:layout_height="wrap_content">
+            <ViewFlipper
+                android:id="@+id/v_flipper"
+                android:layout_width="match_parent"
+                android:layout_height="215dp"
+                android:layout_centerHorizontal="true" />
 
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/refreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+            <TextView
+                android:id="@+id/news_feed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="230dp"
+                android:background="#ffffff"
+                android:scrollHorizontally="true"
+                android:singleLine="true"
+                android:text="हमारी दुकान प्रत्येक मंगलवार, गुरुवार, शनिवार को खोली जाती है|"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tableHeading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="300dp"
+                android:background="#ffffff"
+                android:text="बनारस बाजार का भाव"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="25sp"
+                android:textStyle="bold"/>
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:orientation="horizontal"
+                 android:layout_marginTop="350dp"
+                 android:weightSum="2">
             <TextView
                 android:id="@+id/tableHeading1"
-                android:layout_width="225dp"
-                android:layout_height="84dp"
-                android:text="99.50 BREAD"
-                android:textAlignment="center"
-                android:paddingTop="25dp"
-                android:textColor="#000000"
-                android:textSize="25sp"
-                android:textStyle="bold"
-                />
-
-            <TextView
-                android:id="@+id/tableId1"
-                android:paddingLeft="50dp"
-                android:text="Rs. 49300"
-                android:textSize="25sp"
-                android:textStyle="bold"
-                android:textColor="#000000"
-                />
-        </TableRow>
-    </TableLayout>
-
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="450dp">
-
-        <TableRow
-            android:background="#ffffff"
-            android:layout_width="match_parent"
-            android:layout_height="15dp">
-
-            <TextView
-                android:id="@+id/tableHeading2"
-                android:layout_width="225dp"
-                android:layout_height="84dp"
-                android:text="SILVER 999"
-                android:textAlignment="center"
-                android:paddingTop="25dp"
-                android:textColor="#000000"
-                android:textSize="25sp"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:id="@+id/tableId2"
-                android:paddingLeft="50dp"
-                android:text="Rs. 49300"
-                android:textSize="25sp"
-                android:textColor="#000000"
-                android:textStyle="bold"/>
-        </TableRow>
-    </TableLayout>
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="540dp">
-
-        <TableRow
-            android:background="#ffffff"
-            android:layout_width="match_parent"
-            android:layout_height="15dp">
-
-            <TextView
-                android:id="@+id/tableHeading3"
-                android:layout_width="225dp"
-                android:layout_height="84dp"
+                android:layout_width="210dp"
+                android:layout_height="70dp"
+                android:background="#ffffff"
                 android:text="99.99 NUMBER"
                 android:textAlignment="center"
                 android:paddingTop="25dp"
                 android:textColor="#000000"
                 android:textSize="25sp"
-                android:textStyle="bold"/>
-
+                android:textStyle="bold"
+                />
+                 <TextView
+                     android:layout_width="200dp"
+                     android:layout_height="70dp"
+                     android:background="#ffffff"
+                     android:id="@+id/tableId2"
+                     android:text="Rs. 49300"
+                     android:paddingTop="25dp"
+                     android:textSize="25sp"
+                     android:textStyle="bold"
+                     android:textColor="#000000"
+                     />
+             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="420dp"
+                android:weightSum="2">
+                <TextView
+                    android:id="@+id/tableHeading3"
+                    android:layout_width="210dp"
+                    android:layout_height="70dp"
+                    android:background="#ffffff"
+                    android:text="99.50 BREAD"
+                    android:textAlignment="center"
+                    android:paddingTop="25dp"
+                    android:textColor="#000000"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    />
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="70dp"
+                    android:background="#ffffff"
+                    android:id="@+id/tableId4"
+                    android:text="Rs. 49300"
+                    android:paddingTop="25dp"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="490dp"
+                android:weightSum="2">
+                <TextView
+                    android:id="@+id/tableHeading5"
+                    android:layout_width="210dp"
+                    android:layout_height="70dp"
+                    android:background="#ffffff"
+                    android:text="SILVER"
+                    android:textAlignment="center"
+                    android:paddingTop="25dp"
+                    android:textColor="#000000"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    />
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="70dp"
+                    android:background="#ffffff"
+                    android:id="@+id/tableId6"
+                    android:text="Rs. 49300"
+                    android:paddingTop="25dp"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="560dp"
+                android:weightSum="2">
+                <TextView
+                    android:id="@+id/tableHeading9"
+                    android:layout_width="210dp"
+                    android:layout_height="70dp"
+                    android:background="#ffffff"
+                    android:text="GOLD RTGS"
+                    android:textAlignment="center"
+                    android:paddingTop="25dp"
+                    android:textColor="#000000"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    />
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="70dp"
+                    android:background="#ffffff"
+                    android:id="@+id/tableId8"
+                    android:text="Rs. 49300"
+                    android:paddingTop="25dp"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    />
+            </LinearLayout>
             <TextView
-                android:id="@+id/tableId3"
-                android:paddingLeft="50dp"
-                android:text="Rs. 49300"
-                android:textSize="25sp"
-                android:textColor="#000000"
-                android:textStyle="bold"/>
-        </TableRow>
-    </TableLayout>
-
-</RelativeLayout>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="650dp"
+                android:text="WHATSAPP NO. IS 9839257450, CONTACT US ON 05422420051/52"
+                android:textSize="28sp"
+                android:textColor="#ffffff"
+                android:textAlignment="center"
+                android:background="@drawable/news"/>
+        </RelativeLayout>
+    </ScrollView>
