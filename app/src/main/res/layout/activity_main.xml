@@ -13,7 +13,7 @@
         android:id="@+id/img"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:src="@drawable/cm"
+        android:src="@drawable/logo_finaaaaal"
         android:layout_gravity="center"/>
 
 </LinearLayout>

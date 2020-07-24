@@ -8,10 +8,10 @@
     <application
         android:allowBackup="true"
         android:hardwareAccelerated="false"
-        android:icon="@drawable/cmj_logo"
+        android:icon="@drawable/logo_finaaaaal"
         android:label="Chetmani Jewellers"
         android:largeHeap="true"
-        android:roundIcon="@drawable/c_l"
+        android:roundIcon="@drawable/logo_finaaaaal"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
