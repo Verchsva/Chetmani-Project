@@ -23,7 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 public class ftab extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
     ViewFlipper v_flipper;
     ImageView image;
-    TextView a, b, c, d, e, f, g, h, i;
+    TextView a, b, c, d, e, f, g, h, i,j,k;
     DatabaseReference reff;
     SwipeRefreshLayout refreshLayout;
 
@@ -44,6 +44,8 @@ public class ftab extends Fragment implements SwipeRefreshLayout.OnRefreshListen
         f = (TextView) root.findViewById(R.id.tableHeading3);
         g = (TextView) root.findViewById(R.id.tableHeading5);
         h = (TextView) root.findViewById(R.id.tableHeading9);
+        i=(TextView)root.findViewById(R.id.news_feed);
+        j=(TextView)root.findViewById(R.id.btmText);
 
         refreshLayout = root.findViewById(R.id.refreshLayout);
         refreshLayout.setOnRefreshListener(this);
@@ -89,18 +91,22 @@ public class ftab extends Fragment implements SwipeRefreshLayout.OnRefreshListen
                 String number = dataSnapshot.child("Number").getValue().toString();
                 String silver = dataSnapshot.child("Silver").getValue().toString();
                 String rtgs = dataSnapshot.child("RTGS").getValue().toString();
-//                String B = dataSnapshot.child("99.50BREAD").getValue().toString();
-//                String N = dataSnapshot.child("99.50NUMBER").getValue().toString();
-//                String S = dataSnapshot.child("SILVER").getValue().toString();
-//                String R = dataSnapshot.child("GOLDRTGS").getValue().toString();
+                String B = dataSnapshot.child("BREAD").getValue().toString();
+                String N = dataSnapshot.child("NUMBER").getValue().toString();
+                String S = dataSnapshot.child("SILVER").getValue().toString();
+                String R = dataSnapshot.child("GOLDRTGS").getValue().toString();
+                String news=dataSnapshot.child("News").getValue().toString();
+                String btmText=dataSnapshot.child("Message").getValue().toString();
                 a.setText(bread);
                 b.setText(number);
                 c.setText(silver);
                 d.setText(rtgs);
-//                e.setText(B);
-//                f.setText(N);
-//                g.setText(S);
-//                h.setText(R);
+                e.setText(B);
+                f.setText(N);
+                g.setText(S);
+                h.setText(R);
+                i.setText(news);
+                j.setText(btmText);
             }
 
             @Override
