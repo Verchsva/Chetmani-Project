@@ -23,7 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 public class ftab extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
     ViewFlipper v_flipper;
     ImageView image;
-    TextView a, b, c, d, e, f, g, h, i,j,k;
+    TextView a, b, c, d, e, f, g, h, i, j, k;
     DatabaseReference reff;
     SwipeRefreshLayout refreshLayout;
 
@@ -32,9 +32,10 @@ public class ftab extends Fragment implements SwipeRefreshLayout.OnRefreshListen
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
+
         final View root = inflater.inflate(R.layout.fragment_tab1home, container, false);
-        TextView textView = root.findViewById(R.id.news_feed);
-        textView.setSelected(true);
+//        TextView textView = root.findViewById(R.id.news_feed);
+//        textView.setSelected(true);
 
         a = (TextView) root.findViewById(R.id.tableId2);
         b = (TextView) root.findViewById(R.id.tableId4);
@@ -44,8 +45,9 @@ public class ftab extends Fragment implements SwipeRefreshLayout.OnRefreshListen
         f = (TextView) root.findViewById(R.id.tableHeading3);
         g = (TextView) root.findViewById(R.id.tableHeading5);
         h = (TextView) root.findViewById(R.id.tableHeading9);
-        i=(TextView)root.findViewById(R.id.news_feed);
-        j=(TextView)root.findViewById(R.id.btmText);
+        i = (TextView) root.findViewById(R.id.news_feed);
+//        i.setSelected(true);
+        j = (TextView) root.findViewById(R.id.btmText);
 
         refreshLayout = root.findViewById(R.id.refreshLayout);
         refreshLayout.setOnRefreshListener(this);
@@ -95,8 +97,8 @@ public class ftab extends Fragment implements SwipeRefreshLayout.OnRefreshListen
                 String N = dataSnapshot.child("NUMBER").getValue().toString();
                 String S = dataSnapshot.child("SILVER").getValue().toString();
                 String R = dataSnapshot.child("GOLDRTGS").getValue().toString();
-                String news=dataSnapshot.child("News").getValue().toString();
-                String btmText=dataSnapshot.child("Message").getValue().toString();
+                String news = dataSnapshot.child("News").getValue().toString();
+                String btmText = dataSnapshot.child("Message").getValue().toString();
                 a.setText(bread);
                 b.setText(number);
                 c.setText(silver);
@@ -105,7 +107,7 @@ public class ftab extends Fragment implements SwipeRefreshLayout.OnRefreshListen
                 f.setText(N);
                 g.setText(S);
                 h.setText(R);
-                i.setText(news);
+//                i.setText(news);
                 j.setText(btmText);
             }
 

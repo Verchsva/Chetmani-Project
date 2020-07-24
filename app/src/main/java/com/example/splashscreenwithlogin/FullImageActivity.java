@@ -28,7 +28,6 @@ public class FullImageActivity extends AppCompatActivity {
 
 //        int position = i.getExtras().getInt("id");
 //        ImageAdapter adapter = new ImageAdapter(this);
-
         ImageView imageView = findViewById(R.id.imageView);
 //        imageView.setImageResource(adapter.images[position]);
         String imageUrl = getIntent().getStringExtra(EXTRA_IMAGE_URL);
