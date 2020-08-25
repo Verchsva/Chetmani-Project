@@ -7,14 +7,17 @@
     android:layout_height="match_parent"
     android:background="@drawable/bm"
     >
-        <RelativeLayout
-            android:layout_width="match_parent"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <ViewFlipper
                 android:id="@+id/v_flipper"
                 android:layout_width="match_parent"
                 android:layout_height="215dp"
-                android:layout_centerHorizontal="true" />
+                android:layout_centerHorizontal="true"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/refreshLayout"
@@ -25,9 +28,9 @@
 
             <TextView
                 android:id="@+id/news_feed"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="230dp"
+                android:layout_marginTop="16dp"
                 android:background="#ffffff"
                 android:ellipsize="marquee"
                 android:focusable="true"
@@ -37,147 +40,125 @@
                 android:singleLine="true"
                 android:text="हमारी दुकान प्रत्येक मंगलवार, गुरुवार, शनिवार को खोली जाती है|"
                 android:textSize="25sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/v_flipper"/>
             <TextView
                 android:id="@+id/tableHeading"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="300dp"
                 android:background="#ffffff"
                 android:text="बनारस बाजार का भाव"
                 android:textAlignment="center"
                 android:textColor="#000000"
                 android:textSize="25sp"
-                android:textStyle="bold"/>
-             <LinearLayout
-                 android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
-                 android:orientation="horizontal"
-                 android:layout_marginTop="350dp"
-                 android:weightSum="2">
+                android:textStyle="bold"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/news_feed"/>
             <TextView
                 android:id="@+id/tableHeading1"
-                android:layout_width="210dp"
+                android:layout_width="wrap_content"
                 android:layout_height="70dp"
                 android:background="#ffffff"
                 android:text="99.99 NUMBER"
+                android:layout_marginTop="16dp"
                 android:textAlignment="center"
-                android:paddingTop="25dp"
                 android:textColor="#000000"
+                android:gravity="center_vertical|center_horizontal"
                 android:textSize="25sp"
                 android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/tableId2"
+                app:layout_constraintTop_toBottomOf="@id/tableHeading"
                 />
                  <TextView
-                     android:layout_width="200dp"
+                     android:layout_width="wrap_content"
                      android:layout_height="70dp"
                      android:background="#ffffff"
                      android:id="@+id/tableId2"
                      android:text="Rs. 49300"
-                     android:paddingTop="25dp"
                      android:textSize="25sp"
                      android:textStyle="bold"
+                     android:gravity="center_horizontal|center_vertical"
+                     android:layout_marginTop="16dp"
                      android:textColor="#000000"
+                     app:layout_constraintTop_toBottomOf="@id/tableHeading"
+                     app:layout_constraintStart_toEndOf="@id/tableHeading1"
+                    app:layout_constraintEnd_toEndOf="parent"
                      />
-             </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="420dp"
-                android:weightSum="2">
+
                 <TextView
                     android:id="@+id/tableHeading3"
-                    android:layout_width="210dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="70dp"
                     android:background="#ffffff"
                     android:text="99.50 BREAD"
-                    android:textAlignment="center"
-                    android:paddingTop="25dp"
+                    android:gravity="center_vertical|center_horizontal"
                     android:textColor="#000000"
                     android:textSize="25sp"
                     android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/tableHeading1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/tableId4"
                     />
                 <TextView
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="70dp"
                     android:background="#ffffff"
                     android:id="@+id/tableId4"
                     android:text="Rs. 49300"
-                    android:paddingTop="25dp"
                     android:textSize="25sp"
                     android:textStyle="bold"
                     android:textColor="#000000"
+                    app:layout_constraintStart_toEndOf="@id/tableHeading3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tableId2"
                     />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="490dp"
-                android:weightSum="2">
                 <TextView
                     android:id="@+id/tableHeading5"
-                    android:layout_width="210dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="70dp"
                     android:background="#ffffff"
+                    android:gravity="center_horizontal|center_vertical"
                     android:text="SILVER"
                     android:textAlignment="center"
-                    android:paddingTop="25dp"
                     android:textColor="#000000"
                     android:textSize="25sp"
                     android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/tableId6"
+                    app:layout_constraintTop_toBottomOf="@id/tableHeading3"
                     />
                 <TextView
-                    android:layout_width="200dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="70dp"
                     android:background="#ffffff"
                     android:id="@+id/tableId6"
+                    android:gravity="center_vertical|center_horizontal"
                     android:text="Rs. 49300"
-                    android:paddingTop="25dp"
                     android:textSize="25sp"
                     android:textStyle="bold"
                     android:textColor="#000000"
+                    app:layout_constraintStart_toEndOf="@id/tableHeading5"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tableHeading3"
                     />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="560dp"
-                android:weightSum="2">
-                <TextView
-                    android:id="@+id/tableHeading9"
-                    android:layout_width="210dp"
-                    android:layout_height="70dp"
-                    android:background="#ffffff"
-                    android:text="GOLD RTGS"
-                    android:textAlignment="center"
-                    android:paddingTop="25dp"
-                    android:textColor="#000000"
-                    android:textSize="25sp"
-                    android:textStyle="bold"
-                    />
-                <TextView
-                    android:layout_width="200dp"
-                    android:layout_height="70dp"
-                    android:background="#ffffff"
-                    android:id="@+id/tableId8"
-                    android:text="Rs. 49300"
-                    android:paddingTop="25dp"
-                    android:textSize="25sp"
-                    android:textStyle="bold"
-                    android:textColor="#000000"
-                    />
-            </LinearLayout>
+
             <TextView
                 android:id="@+id/btmText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="650dp"
+                android:layout_marginTop="24dp"
                 android:text="WHATSAPP NO. IS 9839257450, CONTACT US ON 05422420051/52"
                 android:textSize="28sp"
                 android:textColor="#ffffff"
                 android:textAlignment="center"
-                android:background="@drawable/news"/>
-        </RelativeLayout>
+                android:background="@drawable/news"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tableHeading5"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
