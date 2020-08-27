@@ -1,4 +1,4 @@
-package com.example.splashscreenwithlogin;
+package com.verchsva.chetmani;
 
 import android.Manifest;
 import android.content.DialogInterface;
@@ -18,7 +18,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.splashscreenwithlogin.ui.main.SectionsPagerAdapter;
+import com.verchsva.chetmani.ui.main.SectionsPagerAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 

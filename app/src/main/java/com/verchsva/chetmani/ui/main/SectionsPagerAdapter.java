@@ -1,4 +1,4 @@
-package com.example.splashscreenwithlogin.ui.main;
+package com.verchsva.chetmani.ui.main;
 
 import android.content.Context;
 
@@ -8,9 +8,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.example.splashscreenwithlogin.R;
-import com.example.splashscreenwithlogin.ftab;
-import com.example.splashscreenwithlogin.gtab;
+import com.verchsva.chetmani.R;
+import com.verchsva.chetmani.ftab;
+import com.verchsva.chetmani.gtab;
 
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to

@@ -1,4 +1,4 @@
-package com.example.splashscreenwithlogin.services;
+package com.verchsva.chetmani.services;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -13,8 +13,8 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 
-import com.example.splashscreenwithlogin.Homepage;
-import com.example.splashscreenwithlogin.R;
+import com.verchsva.chetmani.Homepage;
+import com.verchsva.chetmani.R;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 

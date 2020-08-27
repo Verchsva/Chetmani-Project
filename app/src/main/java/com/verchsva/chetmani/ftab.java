@@ -1,4 +1,4 @@
-package com.example.splashscreenwithlogin;
+package com.verchsva.chetmani;
 
 import android.os.Bundle;
 import android.util.Log;

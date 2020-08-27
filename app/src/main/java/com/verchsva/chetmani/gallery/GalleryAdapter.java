@@ -1,4 +1,4 @@
-package com.example.splashscreenwithlogin.gallery;
+package com.verchsva.chetmani.gallery;
 
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -9,8 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.splashscreenwithlogin.FullImageActivity;
-import com.example.splashscreenwithlogin.R;
+import com.verchsva.chetmani.FullImageActivity;
+import com.verchsva.chetmani.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
