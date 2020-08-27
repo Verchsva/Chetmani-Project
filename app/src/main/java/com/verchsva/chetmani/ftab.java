@@ -53,7 +53,7 @@ public class ftab extends Fragment implements SwipeRefreshLayout.OnRefreshListen
         refreshLayout.setOnRefreshListener(this);
 
 
-        int images[] = {R.drawable.banner, R.drawable.bannerr, R.drawable.bannerrrr};
+        int images[] = {R.drawable.new_banner, R.drawable.banner, R.drawable.bannerr};
         v_flipper = root.findViewById(R.id.v_flipper);
 
         for (int i = 0; i < images.length; i++) {
