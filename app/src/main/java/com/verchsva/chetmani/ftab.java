@@ -83,7 +83,7 @@ public class ftab extends Fragment implements SwipeRefreshLayout.OnRefreshListen
 
     @Override
     public void onRefresh() {
-        reff = FirebaseDatabase.getInstance().getReference().child("Bhav");//.child("1");
+        reff = Utils.getInstance().getReference().child("Bhav");//.child("1");
 
         reff.addValueEventListener(new ValueEventListener() {
             @Override

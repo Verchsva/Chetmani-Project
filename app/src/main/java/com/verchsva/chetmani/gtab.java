@@ -54,7 +54,7 @@ public class gtab extends Fragment {
         final GalleryAdapter galleryAdapter = new GalleryAdapter();
         rvImages.setAdapter(galleryAdapter);
 
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("IMAGES");
+        DatabaseReference databaseReference = Utils.getInstance().getReference().child("IMAGES");
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

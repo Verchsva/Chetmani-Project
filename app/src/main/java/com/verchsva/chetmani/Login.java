@@ -30,7 +30,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         Button btnLogin = findViewById(R.id.btnLogin);
         member = new Member();
         btnLogin.setOnClickListener(this);
-        reff = FirebaseDatabase.getInstance().getReference().child("Member");
+        reff = Utils.getInstance().getReference().child("Member");
         sharedPref = SharedPref.getInstance(this);
     }
 
