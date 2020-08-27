@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.splashscreenwithlogin">
+    package="com.verchsva.chetmani">
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -16,20 +16,20 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".FullImageActivity"
+            android:name="com.verchsva.chetmani.FullImageActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".Homepage"
+            android:name="com.verchsva.chetmani.Homepage"
             android:label="@string/title_activity_homepage"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name=".Login"
+            android:name="com.verchsva.chetmani.Login"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.verchsva.chetmani.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,7 +39,7 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".services.MyFirebaseInstanceService">
+        <service android:name="com.verchsva.chetmani.services.MyFirebaseInstanceService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
