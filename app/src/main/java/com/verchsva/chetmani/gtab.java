@@ -30,18 +30,6 @@ public class gtab extends Fragment {
     public View onCreateView(
             final LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-
-
-//        gridView=(GridView) root.findViewById(R.id.grid_view);
-//        gridView.setAdapter(new ImageAdapter(getContext()));
-//        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                Intent i=new Intent(getContext(),FullImageActivity.class);
-//                i.putExtra("id",position);
-//                startActivity(i);
-//            }
-//        });
         return inflater.inflate(R.layout.fragment_tab2home, container, false);
     }
 
@@ -75,25 +63,5 @@ public class gtab extends Fragment {
 
             }
         });
-//        galleryAdapter.addItems(Arrays.asList(
-//                "https://4.imimg.com/data4/KY/YH/MY-2550960/fine-gold-polish-jewellery-500x500.jpg",
-//                "https://4.imimg.com/data4/KY/YH/MY-2550960/fine-gold-polish-jewellery-500x500.jpg",
-//                "https://4.imimg.com/data4/KY/YH/MY-2550960/fine-gold-polish-jewellery-500x500.jpg",
-//                "https://4.imimg.com/data4/KY/YH/MY-2550960/fine-gold-polish-jewellery-500x500.jpg",
-//                "https://4.imimg.com/data4/KY/YH/MY-2550960/fine-gold-polish-jewellery-500x500.jpg",
-//                "https://4.imimg.com/data4/KY/YH/MY-2550960/fine-gold-polish-jewellery-500x500.jpg",
-//                "https://4.imimg.com/data4/KY/YH/MY-2550960/fine-gold-polish-jewellery-500x500.jpg",
-//                "https://4.imimg.com/data4/KY/YH/MY-2550960/fine-gold-polish-jewellery-500x500.jpg",
-//                "https://4.imimg.com/data4/KY/YH/MY-2550960/fine-gold-polish-jewellery-500x500.jpg",
-//                "https://4.imimg.com/data4/KY/YH/MY-2550960/fine-gold-polish-jewellery-500x500.jpg",
-//                "https://4.imimg.com/data4/KY/YH/MY-2550960/fine-gold-polish-jewellery-500x500.jpg",
-//                "https://4.imimg.com/data4/KY/YH/MY-2550960/fine-gold-polish-jewellery-500x500.jpg",
-//                "https://4.imimg.com/data4/KY/YH/MY-2550960/fine-gold-polish-jewellery-500x500.jpg",
-//                "https://4.imimg.com/data4/KY/YH/MY-2550960/fine-gold-polish-jewellery-500x500.jpg",
-//                "https://4.imimg.com/data4/KY/YH/MY-2550960/fine-gold-polish-jewellery-500x500.jpg",
-//                "https://4.imimg.com/data4/KY/YH/MY-2550960/fine-gold-polish-jewellery-500x500.jpg",
-//                "https://4.imimg.com/data4/KY/YH/MY-2550960/fine-gold-polish-jewellery-500x500.jpg",
-//                "https://4.imimg.com/data4/KY/YH/MY-2550960/fine-gold-polish-jewellery-500x500.jpg"));
-//    }
     }
 }

@@ -12,6 +12,8 @@ import android.widget.ViewFlipper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.google.firebase.database.DataSnapshot;
@@ -19,6 +21,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.verchsva.chetmani.slideshow.SlideshowAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ftab extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
     ViewFlipper v_flipper;
@@ -34,31 +40,19 @@ public class ftab extends Fragment implements SwipeRefreshLayout.OnRefreshListen
             Bundle savedInstanceState) {
 
         final View root = inflater.inflate(R.layout.fragment_tab1home, container, false);
-//        TextView textView = root.findViewById(R.id.news_feed);
-//        textView.setSelected(true);
 
         a = (TextView) root.findViewById(R.id.tableId2);
         b = (TextView) root.findViewById(R.id.tableId4);
         c = (TextView) root.findViewById(R.id.tableId6);
-        //d = (TextView) root.findViewById(R.id.tableId8);
         e = (TextView) root.findViewById(R.id.tableHeading1);
         f = (TextView) root.findViewById(R.id.tableHeading3);
         g = (TextView) root.findViewById(R.id.tableHeading5);
-        //h = (TextView) root.findViewById(R.id.tableHeading9);
         i = (TextView) root.findViewById(R.id.news_feed);
-//        i.setSelected(true);
         j = (TextView) root.findViewById(R.id.btmText);
+        k=(TextView)root.findViewById(R.id.tableHeading);
 
         refreshLayout = root.findViewById(R.id.refreshLayout);
         refreshLayout.setOnRefreshListener(this);
-
-
-        int images[] = {R.drawable.new_banner, R.drawable.banner, R.drawable.bannerr};
-        v_flipper = root.findViewById(R.id.v_flipper);
-
-        for (int i = 0; i < images.length; i++) {
-            flipperImages(images[i]);
-        }
         return root;
     }
 
@@ -66,9 +60,34 @@ public class ftab extends Fragment implements SwipeRefreshLayout.OnRefreshListen
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         onRefresh();
-    }
+        RecyclerView rvSlideshow = getView().findViewById(R.id.rv_slideshow_images);
+        rvSlideshow.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false));
+        final SlideshowAdapter slideshowAdapter = new SlideshowAdapter();
+        rvSlideshow.setAdapter(slideshowAdapter);
 
-    public void flipperImages(int image) {
+        DatabaseReference databaseReference = Utils.getInstance().getReference().child("SLIDESHOW");
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                List<String> strings = new ArrayList<>();
+                int index = 1;
+                while (snapshot.hasChild("" + index)) {
+                    Object value = snapshot.child("" + index).getValue();
+                    if (value != null) {
+                        strings.add(value.toString());
+                    }
+                    index++;
+                }
+                slideshowAdapter.addItems(strings);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+/*  public void flipperImages(int image) {
         ImageView imageView = new ImageView(getContext());
         imageView.setBackgroundResource(image);
 
@@ -80,10 +99,10 @@ public class ftab extends Fragment implements SwipeRefreshLayout.OnRefreshListen
         v_flipper.setOutAnimation(getContext(), android.R.anim.slide_in_left);
 
     }
-
+*/
     @Override
     public void onRefresh() {
-        reff = Utils.getInstance().getReference().child("Bhav");//.child("1");
+        reff = FirebaseDatabase.getInstance().getReference().child("Bhav");
 
         reff.addValueEventListener(new ValueEventListener() {
             @Override
@@ -92,23 +111,21 @@ public class ftab extends Fragment implements SwipeRefreshLayout.OnRefreshListen
                 String bread = dataSnapshot.child("Bread").getValue().toString();
                 String number = dataSnapshot.child("Number").getValue().toString();
                 String silver = dataSnapshot.child("Silver").getValue().toString();
-          //      String rtgs = dataSnapshot.child("RTGS").getValue().toString();
                 String B = dataSnapshot.child("BREAD").getValue().toString();
                 String N = dataSnapshot.child("NUMBER").getValue().toString();
                 String S = dataSnapshot.child("SILVER").getValue().toString();
-            //    String R = dataSnapshot.child("GOLDRTGS").getValue().toString();
                 String news = dataSnapshot.child("News").getValue().toString();
                 String btmText = dataSnapshot.child("Message").getValue().toString();
+                String heading = dataSnapshot.child("Update").getValue().toString();
                 a.setText(bread);
                 b.setText(number);
                 c.setText(silver);
-              //  d.setText(rtgs);
                 e.setText(B);
                 f.setText(N);
                 g.setText(S);
-                //h.setText(R);
-//                i.setText(news);
+                i.setText(news);
                 j.setText(btmText);
+                k.setText(heading);
             }
 
             @Override

@@ -24,12 +24,7 @@ public class FullImageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_full_image);
 
-//        Intent i = getIntent();
-
-//        int position = i.getExtras().getInt("id");
-//        ImageAdapter adapter = new ImageAdapter(this);
         ImageView imageView = findViewById(R.id.imageView);
-//        imageView.setImageResource(adapter.images[position]);
         String imageUrl = getIntent().getStringExtra(EXTRA_IMAGE_URL);
         Picasso.get().load(imageUrl).into(imageView);
     }
