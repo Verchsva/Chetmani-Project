@@ -1,4 +1,4 @@
-package com.verchsva.chetmani.ui.main;
+package com.chetmani.verchsva.ui.main;
 
 import android.content.Context;
 
@@ -8,9 +8,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.verchsva.chetmani.R;
-import com.verchsva.chetmani.ftab;
-import com.verchsva.chetmani.gtab;
+import com.chetmani.verchsva.R;
+import com.chetmani.verchsva.ftab;
+import com.chetmani.verchsva.gtab;
 
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to

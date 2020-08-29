@@ -1,4 +1,4 @@
-package com.verchsva.chetmani;
+package com.chetmani.verchsva;
 
 import com.google.firebase.database.FirebaseDatabase;
 

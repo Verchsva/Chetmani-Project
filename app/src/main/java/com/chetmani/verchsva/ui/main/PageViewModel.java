@@ -1,4 +1,4 @@
-package com.verchsva.chetmani.ui.main;
+package com.chetmani.verchsva.ui.main;
 
 import androidx.arch.core.util.Function;
 import androidx.lifecycle.LiveData;

@@ -1,4 +1,4 @@
-package com.verchsva.chetmani;
+package com.chetmani.verchsva;
 
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -22,9 +22,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.verchsva.chetmani.slideshow.SlideshowAdapter;
-
-import org.w3c.dom.Text;
+import com.chetmani.verchsva.slideshow.SlideshowAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

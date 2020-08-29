@@ -1,4 +1,4 @@
-package com.verchsva.chetmani;
+package com.chetmani.verchsva;
 
 import android.content.Intent;
 import android.os.Bundle;

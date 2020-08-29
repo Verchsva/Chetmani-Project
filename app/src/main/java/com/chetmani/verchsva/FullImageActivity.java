@@ -1,4 +1,4 @@
-package com.verchsva.chetmani;
+package com.chetmani.verchsva;
 
 import android.content.Context;
 import android.content.Intent;

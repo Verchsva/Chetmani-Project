@@ -1,4 +1,4 @@
-package com.verchsva.chetmani.gallery;
+package com.chetmani.verchsva.gallery;
 
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -9,8 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.verchsva.chetmani.FullImageActivity;
-import com.verchsva.chetmani.R;
+import com.chetmani.verchsva.FullImageActivity;
+import com.chetmani.verchsva.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;

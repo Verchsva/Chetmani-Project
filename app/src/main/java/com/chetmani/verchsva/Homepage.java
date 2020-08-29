@@ -1,4 +1,4 @@
-package com.verchsva.chetmani;
+package com.chetmani.verchsva;
 
 import android.Manifest;
 import android.content.DialogInterface;
@@ -18,7 +18,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.ViewPager;
 
-import com.verchsva.chetmani.ui.main.SectionsPagerAdapter;
+import com.chetmani.verchsva.ui.main.SectionsPagerAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 

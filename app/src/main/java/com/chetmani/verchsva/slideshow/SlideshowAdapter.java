@@ -1,4 +1,4 @@
-package com.verchsva.chetmani.slideshow;
+package com.chetmani.verchsva.slideshow;
 
 import android.content.Intent;
 import android.util.Log;
@@ -11,8 +11,8 @@ import androidx.appcompat.widget.AppCompatImageView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
-import com.verchsva.chetmani.FullImageActivity;
-import com.verchsva.chetmani.R;
+import com.chetmani.verchsva.FullImageActivity;
+import com.chetmani.verchsva.R;
 
 import java.util.ArrayList;
 import java.util.List;
