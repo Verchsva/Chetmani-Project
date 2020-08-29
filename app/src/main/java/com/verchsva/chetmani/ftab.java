@@ -1,6 +1,7 @@
 package com.verchsva.chetmani;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +23,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.verchsva.chetmani.slideshow.SlideshowAdapter;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,6 +54,10 @@ public class ftab extends Fragment implements SwipeRefreshLayout.OnRefreshListen
         i = (TextView) root.findViewById(R.id.news_feed);
         j = (TextView) root.findViewById(R.id.btmText);
         k = (TextView) root.findViewById(R.id.tableHeading);
+
+        TextView textView = root.findViewById(R.id.news_feed);
+        textView.setEllipsize(TextUtils.TruncateAt.MARQUEE);
+        textView.setSelected(true);
 
         refreshLayout = root.findViewById(R.id.refreshLayout);
         refreshLayout.setOnRefreshListener(this);
