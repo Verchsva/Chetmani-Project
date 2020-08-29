@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ftab extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
+    private static final String TAG = "fTab";
     ViewFlipper v_flipper;
     ImageView image;
     TextView a, b, c, d, e, f, g, h, i, j, k;
@@ -49,7 +50,7 @@ public class ftab extends Fragment implements SwipeRefreshLayout.OnRefreshListen
         g = (TextView) root.findViewById(R.id.tableHeading5);
         i = (TextView) root.findViewById(R.id.news_feed);
         j = (TextView) root.findViewById(R.id.btmText);
-        k=(TextView)root.findViewById(R.id.tableHeading);
+        k = (TextView) root.findViewById(R.id.tableHeading);
 
         refreshLayout = root.findViewById(R.id.refreshLayout);
         refreshLayout.setOnRefreshListener(this);
@@ -60,6 +61,7 @@ public class ftab extends Fragment implements SwipeRefreshLayout.OnRefreshListen
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         onRefresh();
+
         RecyclerView rvSlideshow = getView().findViewById(R.id.rv_slideshow_images);
         rvSlideshow.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false));
         final SlideshowAdapter slideshowAdapter = new SlideshowAdapter();
@@ -69,6 +71,7 @@ public class ftab extends Fragment implements SwipeRefreshLayout.OnRefreshListen
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Log.v(TAG, "***** onDataChange");
                 List<String> strings = new ArrayList<>();
                 int index = 1;
                 while (snapshot.hasChild("" + index)) {
@@ -87,19 +90,20 @@ public class ftab extends Fragment implements SwipeRefreshLayout.OnRefreshListen
             }
         });
     }
-/*  public void flipperImages(int image) {
-        ImageView imageView = new ImageView(getContext());
-        imageView.setBackgroundResource(image);
 
-        v_flipper.addView(imageView);
-        v_flipper.setFlipInterval(4000);
-        v_flipper.setAutoStart(true);
-
-        v_flipper.setInAnimation(getContext(), android.R.anim.slide_in_left);
-        v_flipper.setOutAnimation(getContext(), android.R.anim.slide_in_left);
-
-    }
-*/
+    /*  public void flipperImages(int image) {
+            ImageView imageView = new ImageView(getContext());
+            imageView.setBackgroundResource(image);
+    
+            v_flipper.addView(imageView);
+            v_flipper.setFlipInterval(4000);
+            v_flipper.setAutoStart(true);
+    
+            v_flipper.setInAnimation(getContext(), android.R.anim.slide_in_left);
+            v_flipper.setOutAnimation(getContext(), android.R.anim.slide_in_left);
+    
+        }
+    */
     @Override
     public void onRefresh() {
         reff = FirebaseDatabase.getInstance().getReference().child("Bhav");
