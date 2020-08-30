@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:180466598974:android:73dccf28acadb978eb7d6f",
         "android_client_info": {
-          "package_name": "com.example.splashscreenwithlogin"
+          "package_name": "com.chetmani.verchsva"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "180466598974-ggfqe9ucand4co9r9dqchs9cqo3a2id7.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.splashscreenwithlogin",
+            "package_name": "com.chetmani.verchsva",
             "certificate_hash": "330863853f313037dd5450164ea178e2f999bd25"
           }
         },

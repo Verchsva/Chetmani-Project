@@ -9,7 +9,7 @@
         android:allowBackup="true"
         android:hardwareAccelerated="false"
         android:icon="@drawable/logo_finaaaaal"
-        android:label="Chetmani Jewellers"
+        android:label="Chetmani"
         android:largeHeap="true"
         android:roundIcon="@drawable/logo_finaaaaal"
         android:supportsRtl="true"
