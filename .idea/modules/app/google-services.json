@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "131729253707",
+    "firebase_url": "https://chetmani-1a8cb.firebaseio.com",
+    "project_id": "chetmani-1a8cb",
+    "storage_bucket": "chetmani-1a8cb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:131729253707:android:2186d7f4cdf471b9e774ce",
+        "android_client_info": {
+          "package_name": "com.chetmani.verchsva"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "131729253707-cosutm08j5l39lsrij7cd3b6idrmh6j5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.chetmani.verchsva",
+            "certificate_hash": "330863853f313037dd5450164ea178e2f999bd25"
+          }
+        },
+        {
+          "client_id": "131729253707-ptlkgfo01pog5ducpguhpve52ki56mit.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAw__YK0lovR4NwF0zZ_TGCbVWpg2n8UfY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "131729253707-ptlkgfo01pog5ducpguhpve52ki56mit.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
