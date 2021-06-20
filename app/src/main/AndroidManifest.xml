@@ -14,32 +14,26 @@
         android:roundIcon="@drawable/logo_finaaaaal"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity
-            android:name="com.chetmani.verchsva.FullImageActivity"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name="com.chetmani.verchsva.Homepage"
-            android:label="@string/title_activity_homepage"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-
-        <activity
-            android:name="com.chetmani.verchsva.Login"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.chetmani.verchsva.MainActivity"
-            android:screenOrientation="portrait">
+        <activity android:name=".HomePage.HomePage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-
             </intent-filter>
         </activity>
+        <activity
+            android:name=".FullImageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Login"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
 
-        <service android:name="com.chetmani.verchsva.services.MyFirebaseInstanceService">
+        </activity>
+
+        <service android:name=".services.MyFirebaseInstanceService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
