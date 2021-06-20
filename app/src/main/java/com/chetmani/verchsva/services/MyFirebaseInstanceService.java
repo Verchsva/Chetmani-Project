@@ -13,6 +13,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 
+import com.chetmani.verchsva.HomePage.HomePage;
 import com.chetmani.verchsva.R;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
@@ -51,7 +52,7 @@ public class MyFirebaseInstanceService extends FirebaseMessagingService {
             notificationManager.createNotificationChannel(notificationChannel);
         }
         NotificationCompat.Builder notificationBuilder=new NotificationCompat.Builder(this,NOTIFICATION_CHANNEL_ID);
-        Intent resultIntent=new Intent(this, Homepage.class);
+        Intent resultIntent=new Intent(this, HomePage.class);
         PendingIntent reultPendingIntent=PendingIntent.getActivity(this,1,resultIntent,PendingIntent.FLAG_UPDATE_CURRENT);
         notificationBuilder.setAutoCancel(true)
                    .setDefaults(Notification.DEFAULT_ALL)
@@ -79,7 +80,7 @@ public class MyFirebaseInstanceService extends FirebaseMessagingService {
             notificationManager.createNotificationChannel(notificationChannel);
         }
         NotificationCompat.Builder notificationBuilder=new NotificationCompat.Builder(this,NOTIFICATION_CHANNEL_ID);
-        Intent resultIntent=new Intent(this, Homepage.class);
+        Intent resultIntent=new Intent(this, HomePage.class);
         PendingIntent reultPendingIntent=PendingIntent.getActivity(this,1,resultIntent,PendingIntent.FLAG_UPDATE_CURRENT);
         notificationBuilder.setAutoCancel(true)
                 .setDefaults(Notification.DEFAULT_ALL)

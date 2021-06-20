@@ -1,9 +1,9 @@
 package com.chetmani.verchsva.HomePage;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-
-import android.os.Bundle;
 
 import com.chetmani.verchsva.R;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
@@ -31,12 +31,12 @@ public class HomePage extends AppCompatActivity {
                         fragment = new HomeFragment();
                         break;
                     case R.id.contact:
-                        fragment = new ConatctFragment();
+                        fragment = new ContactFragment();
                         break;
                     case R.id.bank:
                         fragment = new BankFragment();
                         break;
-                    case R.id.gallery;
+                    case R.id.gallery:
                         fragment = new GalleryFragment();
                         break;
                 }

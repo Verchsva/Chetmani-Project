@@ -6,13 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".HomePage.HomePage">
 
-    <com.ismaeldivita.chipnavigation.ChipNavigationBar
+  <com.ismaeldivita.chipnavigation.ChipNavigationBar
         android:id="@+id/chipNavigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:cnb_menuResource="@menu/nav_item"/>
-
+        app:cnb_menuResource="@menu/nav_item"/>
     <FrameLayout
         android:id="@+id/container"
         android:layout_width="match_parent"

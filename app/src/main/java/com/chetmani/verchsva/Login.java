@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.chetmani.verchsva.HomePage.HomePage;
 import com.google.firebase.database.DatabaseReference;
 
 public class Login extends AppCompatActivity implements View.OnClickListener {
@@ -80,7 +81,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     }
 
     public void openActivity2() {
-        Intent intent = new Intent(this, Homepage.class);
+        Intent intent = new Intent(this, HomePage.class);
         startActivity(intent);
     }
 }
