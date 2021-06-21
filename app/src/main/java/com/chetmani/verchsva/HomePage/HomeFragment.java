@@ -3,12 +3,19 @@ package com.chetmani.verchsva.HomePage;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.chetmani.verchsva.R;
+import com.chetmani.verchsva.slideshow.DataForImageSlider;
+import com.chetmani.verchsva.slideshow.ImageSliderAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -17,6 +24,9 @@ import com.chetmani.verchsva.R;
  */
 public class HomeFragment extends Fragment {
 
+    RecyclerView recyclerView;
+    ImageSliderAdapter sliderAdapter;
+    List<DataForImageSlider> dataForImageSliders;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -62,5 +72,25 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false);
+
+        dataForImageSliders=new ArrayList<>();
+        setData();
+        setAdapter();
+    }
+
+    private void setAdapter() {
+        recyclerView=getView().findViewById(R.id.rv_slideshow_images);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL,true));
+        sliderAdapter=new ImageSliderAdapter(this,dataForImageSliders);
+        recyclerView.setAdapter(sliderAdapter);
+    }
+
+    private void setData() {
+        dataForImageSliders.add(new DataForImageSlider("","1"));
+        dataForImageSliders.add(new DataForImageSlider("","2"));
+        dataForImageSliders.add(new DataForImageSlider("","3"));
+        dataForImageSliders.add(new DataForImageSlider("","4"));
+
     }
 }

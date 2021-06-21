@@ -12,6 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.chetmani.verchsva.HomePage.HomeFragment;
 import com.squareup.picasso.Picasso;
 import com.chetmani.verchsva.FullImageActivity;
 import com.chetmani.verchsva.R;
@@ -24,7 +26,7 @@ public class ImageSliderAdapter extends RecyclerView.Adapter<ImageSliderAdapter.
     public Context context;
     List<DataForImageSlider> dataForImageSlider;
 
-    public ImageSliderAdapter(Context context, List<DataForImageSlider> dataForImageSlider) {
+    public ImageSliderAdapter(HomeFragment context, List<DataForImageSlider> dataForImageSlider) {
         this.context = context;
         this.dataForImageSlider = dataForImageSlider;
     }
@@ -38,7 +40,8 @@ public class ImageSliderAdapter extends RecyclerView.Adapter<ImageSliderAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
+        DataForImageSlider dt=dataForImageSlider.get(position);
+        Glide.with(context).load(dt.getImageUrl()).into(holder.imageView);
     }
 
     @Override
