@@ -40,8 +40,6 @@
             app:layout_constraintTop_toBottomOf="@id/rv_slideshow_images"/>
 
 
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </RelativeLayout>

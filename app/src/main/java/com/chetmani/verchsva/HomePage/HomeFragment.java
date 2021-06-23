@@ -91,6 +91,5 @@ public class HomeFragment extends Fragment {
         dataForImageSliders.add(new DataForImageSlider("","2"));
         dataForImageSliders.add(new DataForImageSlider("","3"));
         dataForImageSliders.add(new DataForImageSlider("","4"));
-
     }
 }
