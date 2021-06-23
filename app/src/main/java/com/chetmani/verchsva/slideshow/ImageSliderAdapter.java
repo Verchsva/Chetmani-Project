@@ -21,40 +21,40 @@ import com.chetmani.verchsva.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ImageSliderAdapter extends RecyclerView.Adapter<ImageSliderAdapter.ViewHolder> {
-
-    public Context context;
-    List<DataForImageSlider> dataForImageSlider;
-
-    public ImageSliderAdapter(HomeFragment context, List<DataForImageSlider> dataForImageSlider) {
-        this.context = context;
-        this.dataForImageSlider = dataForImageSlider;
-    }
-
-    @NonNull
-    @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view=LayoutInflater.from(context).inflate(R.layout.image_slideshow,parent,false);
-        return new ViewHolder(view);
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        DataForImageSlider dt=dataForImageSlider.get(position);
-        Glide.with(context).load(dt.getImageUrl()).into(holder.imageView);
-    }
-
-    @Override
-    public int getItemCount() {
-        return dataForImageSlider.size();
-    }
-
-    public class ViewHolder extends RecyclerView.ViewHolder{
-        public ImageView imageView;
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
-            imageView=itemView.findViewById(R.id.iv_banner);
-        }
-    }
-}
+//public class ImageSliderAdapter extends RecyclerView.Adapter<ImageSliderAdapter.ViewHolder> {
+//
+//    public Context context;
+//    List<DataForImageSlider> dataForImageSlider;
+//
+//    public ImageSliderAdapter(HomeFragment context, List<DataForImageSlider> dataForImageSlider) {
+//        this.context = context;
+//        this.dataForImageSlider = dataForImageSlider;
+//    }
+//
+//    @NonNull
+//    @Override
+//    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+//        View view=LayoutInflater.from(context).inflate(R.layout.image_slideshow,parent,false);
+//        return new ViewHolder(view);
+//    }
+//
+//    @Override
+//    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+//        DataForImageSlider dt=dataForImageSlider.get(position);
+//        Glide.with(context).load(dt.getImageUrl()).into(holder.imageView);
+//    }
+//
+//    @Override
+//    public int getItemCount() {
+//        return dataForImageSlider.size();
+//    }
+//
+//    public class ViewHolder extends RecyclerView.ViewHolder{
+//        public ImageView imageView;
+//        public ViewHolder(@NonNull View itemView) {
+//            super(itemView);
+//            imageView=itemView.findViewById(R.id.iv_banner);
+//        }
+//    }
+//}
 

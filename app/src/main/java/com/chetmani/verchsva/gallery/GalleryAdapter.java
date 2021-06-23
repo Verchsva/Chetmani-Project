@@ -1,71 +1,52 @@
 package com.chetmani.verchsva.gallery;
 
-import android.content.Intent;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.widget.AppCompatImageView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.chetmani.verchsva.FullImageActivity;
 import com.chetmani.verchsva.R;
-import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
-import java.util.List;
+public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.ViewHolder> {
+    Context context;
+    int[] galleryImages;
 
-/**
- * Created by Ashutosh Srivastava on 22-Jul-2020 11:31 PM.
- * Project : SplashScreenWithLogIn
- * Copyright (c) 2020  All rights reserved.
- */
-public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryViewHolder> {
+    public class ViewHolder extends RecyclerView.ViewHolder{
+        ImageView rowImage;
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+            rowImage= itemView.findViewById(R.id.iv_image);
+        }
+    }
 
-    private final List<String> mItems;
-
-    public GalleryAdapter() {
-        this.mItems = new ArrayList<>();
+    public GalleryAdapter(Context context, int[] galleryImages) {
+        this.context = context;
+        this.galleryImages = galleryImages;
     }
 
     @NonNull
     @Override
-    public GalleryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new GalleryViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_gallery, parent, false));
+    public GalleryAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        LayoutInflater layoutInflater=LayoutInflater.from(context);
+        View view=layoutInflater.inflate(R.layout.item_gallery,parent,false);
+        ViewHolder viewHolder= new ViewHolder(view);
+        return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull GalleryViewHolder holder, final int position) {
-        Picasso.get().load(mItems.get(position)).into(holder.ivImage);
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent startIntent = FullImageActivity.getStartIntent(view.getContext(), mItems.get(position));
-                view.getContext().startActivity(startIntent);
-            }
-        });
+    public void onBindViewHolder(@NonNull GalleryAdapter.ViewHolder holder, int position) {
+
+        holder.rowImage.setImageResource(galleryImages[position]);
     }
 
     @Override
     public int getItemCount() {
-        return mItems.size();
+        return galleryImages.length;
     }
 
-    public void addItems(List<String> items) {
-        this.mItems.clear();
-        if (items != null) {
-            this.mItems.addAll(items);
-        }
-        notifyDataSetChanged();
-    }
 
-    public class GalleryViewHolder extends RecyclerView.ViewHolder {
-        AppCompatImageView ivImage;
-
-        public GalleryViewHolder(@NonNull View itemView) {
-            super(itemView);
-            ivImage = itemView.findViewById(R.id.iv_image);
-        }
-    }
 }

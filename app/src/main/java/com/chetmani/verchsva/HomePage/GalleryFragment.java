@@ -3,12 +3,15 @@ package com.chetmani.verchsva.HomePage;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.chetmani.verchsva.R;
+import com.chetmani.verchsva.gallery.GalleryAdapter;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,6 +19,12 @@ import com.chetmani.verchsva.R;
  * create an instance of this fragment.
  */
 public class GalleryFragment extends Fragment {
+
+    RecyclerView recyclerView;
+    RecyclerView.Adapter galleryAdapter;
+    RecyclerView.LayoutManager layoutManager;
+
+    int[] galleryImages = { R.drawable.banner,R.drawable.bannerr,R.drawable.bannerrrr};
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -51,6 +60,13 @@ public class GalleryFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        recyclerView=getView().findViewById(R.id.rv_gallery);
+        recyclerView.setHasFixedSize(true);
+        layoutManager=new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,true);
+        recyclerView.setLayoutManager(layoutManager);
+        galleryAdapter=new GalleryAdapter(getContext(),galleryImages);
+        recyclerView.setAdapter(galleryAdapter);
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -62,5 +78,6 @@ public class GalleryFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_gallery, container, false);
+
     }
 }
