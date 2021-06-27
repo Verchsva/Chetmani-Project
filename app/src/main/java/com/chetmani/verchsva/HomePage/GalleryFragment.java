@@ -60,12 +60,12 @@ public class GalleryFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        recyclerView=getView().findViewById(R.id.rv_gallery);
-        recyclerView.setHasFixedSize(true);
-        layoutManager=new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,true);
-        recyclerView.setLayoutManager(layoutManager);
-        galleryAdapter=new GalleryAdapter(getContext(),galleryImages);
-        recyclerView.setAdapter(galleryAdapter);
+//        recyclerView=getView().findViewById(R.id.rv_gallery);
+//        recyclerView.setHasFixedSize(true);
+//        layoutManager=new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,true);
+//        recyclerView.setLayoutManager(layoutManager);
+//        galleryAdapter=new GalleryAdapter(getContext(),galleryImages);
+//        recyclerView.setAdapter(galleryAdapter);
 
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
@@ -77,7 +77,13 @@ public class GalleryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_gallery, container, false);
-
+       final View root= inflater.inflate(R.layout.fragment_gallery, container, false);
+        recyclerView=root.findViewById(R.id.rv_gallery);
+        recyclerView.setHasFixedSize(true);
+        layoutManager=new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,true);
+        recyclerView.setLayoutManager(layoutManager);
+        galleryAdapter=new GalleryAdapter(getContext(),galleryImages);
+        recyclerView.setAdapter(galleryAdapter);
+        return root;
     }
 }

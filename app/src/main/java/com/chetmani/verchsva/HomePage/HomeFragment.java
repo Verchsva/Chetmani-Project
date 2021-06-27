@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 
 import com.chetmani.verchsva.R;
 import com.chetmani.verchsva.slideshow.DataForImageSlider;
+import com.chetmani.verchsva.slideshow.ImageSliderAdapter;
 
 
 import java.util.ArrayList;
@@ -24,9 +25,10 @@ import java.util.List;
  */
 public class HomeFragment extends Fragment {
 
-//    RecyclerView recyclerView;
-//    ImageSliderAdapter sliderAdapter;
-//    List<DataForImageSlider> dataForImageSliders;
+    RecyclerView recyclerView;
+    ImageSliderAdapter sliderAdapter;
+    List<DataForImageSlider> dataForImageSliders;
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -65,6 +67,9 @@ public class HomeFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        dataForImageSliders=new ArrayList<>();
+        setData();
+        setAdapter();
     }
 
     @Override
@@ -73,24 +78,19 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false);
     }
+
+    private void setAdapter() {
+        recyclerView=getView().findViewById(R.id.recyclerSlider);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL,true));
+        sliderAdapter=new ImageSliderAdapter(getContext(),dataForImageSliders);
+        recyclerView.setAdapter(sliderAdapter);
+    }
+
+    private void setData() {
+        dataForImageSliders.add(new DataForImageSlider("R.drawable.bannerrrrrrr","1"));
+        dataForImageSliders.add(new DataForImageSlider("R.drawable.bannerrrrrrr","2"));
+        dataForImageSliders.add(new DataForImageSlider("R.drawable.bannerrrrrrr","3"));
+        dataForImageSliders.add(new DataForImageSlider("R.drawable.bannerrrrrrr","4"));
+    }
 }
-       // dataForImageSliders=new ArrayList<>();
-//        setData();
-//        setAdapter();
-
-
-//    private void setAdapter() {
-//        recyclerView=getView().findViewById(R.id.rv_slideshow_images);
-//        recyclerView.setHasFixedSize(true);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL,true));
-//        sliderAdapter=new ImageSliderAdapter(this,dataForImageSliders);
-//        recyclerView.setAdapter(sliderAdapter);
-//    }
-//
-//    private void setData() {
-//        dataForImageSliders.add(new DataForImageSlider("","1"));
-//        dataForImageSliders.add(new DataForImageSlider("","2"));
-//        dataForImageSliders.add(new DataForImageSlider("","3"));
-//        dataForImageSliders.add(new DataForImageSlider("","4"));
-//    }
-//}
