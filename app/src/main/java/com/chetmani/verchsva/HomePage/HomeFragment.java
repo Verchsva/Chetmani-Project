@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -85,6 +86,22 @@ public class HomeFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL,true));
         sliderAdapter=new ImageSliderAdapter(getContext(),dataForImageSliders);
         recyclerView.setAdapter(sliderAdapter);
+
+        final int interval_time=3000;
+        Handler handler=new Handler();
+        Runnable runnable=new Runnable() {
+            int count=0;
+            @Override
+            public void run() {
+                if (count<dataForImageSliders.size()){
+                    recyclerView.scrollToPosition(interval_time);
+                    if (count==dataForImageSliders.size()){
+                        count=0;
+                    }
+                }
+            }
+        };
+        handler.postDelayed(runnable,interval_time);
     }
 
     private void setData() {
