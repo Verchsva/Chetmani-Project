@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 
 import com.chetmani.verchsva.R;
 import com.chetmani.verchsva.gallery.GalleryAdapter;
+import com.chetmani.verchsva.gallery.GalleryData;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,8 +24,6 @@ public class GalleryFragment extends Fragment {
     RecyclerView recyclerView;
     RecyclerView.Adapter galleryAdapter;
     RecyclerView.LayoutManager layoutManager;
-
-    int[] galleryImages = { R.drawable.banner,R.drawable.bannerr,R.drawable.bannerrrr};
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -66,6 +65,21 @@ public class GalleryFragment extends Fragment {
 //        recyclerView.setLayoutManager(layoutManager);
 //        galleryAdapter=new GalleryAdapter(getContext(),galleryImages);
 //        recyclerView.setAdapter(galleryAdapter);
+        RecyclerView recyclerView=getView().findViewById(R.id.rv_gallery);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        GalleryData[] galleryData= new GalleryData[]{
+            new GalleryData(R.drawable.bannerrrr),
+                new GalleryData(R.drawable.bannerr),
+                new GalleryData(R.drawable.banner),
+                new GalleryData(R.drawable.bannerrrrrr),
+
+        };
+
+        GalleryAdapter galleryAdapter= new GalleryAdapter(galleryData,GalleryFragment.this);
+        recyclerView.setAdapter(galleryAdapter);
+
 
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
@@ -77,13 +91,12 @@ public class GalleryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-       final View root= inflater.inflate(R.layout.fragment_gallery, container, false);
-        recyclerView=root.findViewById(R.id.rv_gallery);
-        recyclerView.setHasFixedSize(true);
-        layoutManager=new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,true);
-        recyclerView.setLayoutManager(layoutManager);
-        galleryAdapter=new GalleryAdapter(getContext(),galleryImages);
-        recyclerView.setAdapter(galleryAdapter);
-        return root;
-    }
+//       final View root= inflater.inflate(R.layout.fragment_gallery, container, false);
+//        recyclerView=root.findViewById(R.id.rv_gallery);
+//        recyclerView.setHasFixedSize(true);
+//        layoutManager=new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,true);
+//        recyclerView.setLayoutManager(layoutManager);
+//        galleryAdapter=new GalleryAdapter(GalleryData[],GalleryFragment.this);
+//        recyclerView.setAdapter(galleryAdapter);
+       return inflater.inflate(R.layout.fragment_gallery, container, false); }
 }
