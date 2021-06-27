@@ -68,9 +68,9 @@ public class HomeFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-        dataForImageSliders=new ArrayList<>();
-        setData();
-        setAdapter();
+//        dataForImageSliders=new ArrayList<>();
+//        setData();
+//        setAdapter();
     }
 
     @Override
@@ -80,34 +80,35 @@ public class HomeFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_home, container, false);
     }
 
-    private void setAdapter() {
-        recyclerView=getView().findViewById(R.id.recyclerSlider);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL,true));
-        sliderAdapter=new ImageSliderAdapter(getContext(),dataForImageSliders);
-        recyclerView.setAdapter(sliderAdapter);
-
-        final int interval_time=3000;
-        Handler handler=new Handler();
-        Runnable runnable=new Runnable() {
-            int count=0;
-            @Override
-            public void run() {
-                if (count<dataForImageSliders.size()){
-                    recyclerView.scrollToPosition(interval_time);
-                    if (count==dataForImageSliders.size()){
-                        count=0;
-                    }
-                }
-            }
-        };
-        handler.postDelayed(runnable,interval_time);
-    }
-
-    private void setData() {
-        dataForImageSliders.add(new DataForImageSlider("R.drawable.bannerrrrrrr","1"));
-        dataForImageSliders.add(new DataForImageSlider("R.drawable.bannerrrrrrr","2"));
-        dataForImageSliders.add(new DataForImageSlider("R.drawable.bannerrrrrrr","3"));
-        dataForImageSliders.add(new DataForImageSlider("R.drawable.bannerrrrrrr","4"));
-    }
+//    private void setAdapter() {
+//        recyclerView=getView().findViewById(R.id.recyclerSlider);
+//        recyclerView.setHasFixedSize(true);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL,true));
+//        sliderAdapter=new ImageSliderAdapter(getContext(),dataForImageSliders);
+//        recyclerView.setAdapter(sliderAdapter);
+//
+//        final int interval_time=3000;
+//        Handler handler=new Handler();
+//        Runnable runnable=new Runnable() {
+//            int count=0;
+//            @Override
+//            public void run() {
+//                if (count<dataForImageSliders.size()){
+//                    recyclerView.scrollToPosition(interval_time);
+//                    if (count==dataForImageSliders.size()){
+//                        count=0;
+//                    }
+//                }
+//            }
+//        };
+//        handler.postDelayed(runnable,interval_time);
+//    }
+//
+//    private void setData() {
+//        dataForImageSliders.add(new DataForImageSlider("R.drawable.bannerrrrrrr","1"));
+//        dataForImageSliders.add(new DataForImageSlider("R.drawable.bannerrrrrrr","2"));
+//        dataForImageSliders.add(new DataForImageSlider("R.drawable.bannerrrrrrr","3"));
+//        dataForImageSliders.add(new DataForImageSlider("R.drawable.bannerrrrrrr","4"));
+//    }
+//}
 }
