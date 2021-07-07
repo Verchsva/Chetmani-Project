@@ -1,12 +1,20 @@
 package com.chetmani.verchsva.HomePage;
 
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.chetmani.verchsva.R;
 
@@ -16,6 +24,9 @@ import com.chetmani.verchsva.R;
  * create an instance of this fragment.
  */
 public class ContactFragment extends Fragment {
+
+    ImageView call1,call2,call3,call4,call5;
+    ImageView wa1,wa2,wa3,wa4;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -62,5 +73,94 @@ public class ContactFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_contact, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        call1=getView().findViewById(R.id.iv_phone_1);
+        call2=getView().findViewById(R.id.iv_phone_2);
+        call3=getView().findViewById(R.id.iv_phone_3);
+        call4=getView().findViewById(R.id.iv_phone_4);
+        call5=getView().findViewById(R.id.iv_phone_5);
+
+
+
+        call1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.CALL_PHONE)
+                        == PackageManager.PERMISSION_GRANTED) {
+                    Intent intent = new Intent(Intent.ACTION_DIAL);
+                    intent.setData(Uri.parse("tel:8601669197"));
+                    startActivity(intent);
+                }
+                else {
+                    requestCallPermission();
+                }
+            }
+        });
+
+        call2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.CALL_PHONE)
+                        == PackageManager.PERMISSION_GRANTED) {
+                    Intent intent = new Intent(Intent.ACTION_DIAL);
+                    intent.setData(Uri.parse("tel:9839257450"));
+                    startActivity(intent);
+                }
+                else {
+                    requestCallPermission();
+                }
+            }
+        });
+
+        call3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.CALL_PHONE)
+                        == PackageManager.PERMISSION_GRANTED) {
+                    Intent intent = new Intent(Intent.ACTION_DIAL);
+                    intent.setData(Uri.parse("tel:7565888726"));
+                    startActivity(intent);
+                }
+                else {
+                    requestCallPermission();
+                }
+            }
+        });
+
+        call4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.CALL_PHONE)
+                        == PackageManager.PERMISSION_GRANTED) {
+                    Intent intent = new Intent(Intent.ACTION_DIAL);
+                    intent.setData(Uri.parse("tel:05422420052"));
+                    startActivity(intent);
+                }
+                else {
+                    requestCallPermission();
+                }
+            }
+        });
+
+        call5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.CALL_PHONE)
+                        == PackageManager.PERMISSION_GRANTED) {
+                    Intent intent = new Intent(Intent.ACTION_DIAL);
+                    intent.setData(Uri.parse("tel:05422420051"));
+                    startActivity(intent);
+                }
+                else {
+                    requestCallPermission();
+                }
+            }
+        });
+
     }
 }
