@@ -88,6 +88,10 @@ public class ContactFragment extends Fragment {
         call3=getView().findViewById(R.id.iv_phone_3);
         call4=getView().findViewById(R.id.iv_phone_4);
         call5=getView().findViewById(R.id.iv_phone_5);
+        wa1=getView().findViewById(R.id.iv_whatsapp_1);
+        wa2=getView().findViewById(R.id.iv_whatsapp_2);
+        wa3=getView().findViewById(R.id.iv_whatsapp_3);
+        wa4=getView().findViewById(R.id.iv_whatsapp_4);
 
 
 
@@ -163,6 +167,47 @@ public class ContactFragment extends Fragment {
                 else {
                     requestCallPermission();
                 }
+            }
+        });
+
+
+        wa1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Uri uri=Uri.parse("smsto:"+"+91"+"8601669197");
+                Intent i=new Intent(Intent.ACTION_SENDTO,uri);
+                i.setPackage("com.whatsapp");
+                startActivity(i);
+            }
+        });
+
+        wa2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Uri uri=Uri.parse("smsto:"+"+91"+"9839257450");
+                Intent i=new Intent(Intent.ACTION_SENDTO,uri);
+                i.setPackage("com.whatsapp");
+                startActivity(i);
+            }
+        });
+
+        wa3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Uri uri=Uri.parse("smsto:"+"+91"+"7565888726");
+                Intent i=new Intent(Intent.ACTION_SENDTO,uri);
+                i.setPackage("com.whatsapp");
+                startActivity(i);
+            }
+        });
+
+        wa4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Uri uri=Uri.parse("smsto:"+"+54"+"22420052");
+                Intent i=new Intent(Intent.ACTION_SENDTO,uri);
+                i.setPackage("com.whatsapp");
+                startActivity(i);
             }
         });
 
