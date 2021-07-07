@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 
 import com.chetmani.verchsva.R;
 import com.chetmani.verchsva.Utils;
+import com.chetmani.verchsva.slideshow.SlideshowAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -24,6 +25,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.content.ContentValues.TAG;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link HomeFragment#newInstance} factory method to
@@ -32,8 +35,6 @@ import java.util.List;
 public class HomeFragment extends Fragment {
 
     RecyclerView recyclerView;
-    ImageSliderAdapter sliderAdapter;
-    List<DataForImageSlider> dataForImageSliders;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -120,7 +121,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        onRefresh();
+
 
         RecyclerView rvSlideshow = getView().findViewById(R.id.rv_slideshow_images);
         rvSlideshow.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false));
