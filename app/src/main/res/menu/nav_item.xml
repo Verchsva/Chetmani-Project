@@ -20,6 +20,11 @@
         android:title="Bank" />
 
     <item
+        android:id="@+id/news"
+        android:icon="@drawable/ic_baseline_info_24"
+        android:title="Bank" />
+
+    <item
         android:id="@+id/gallery"
         android:icon="@drawable/ic_gallery"
         android:title="Gallery" />

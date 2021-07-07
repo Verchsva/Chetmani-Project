@@ -36,9 +36,17 @@ public class HomePage extends AppCompatActivity {
                     case R.id.bank:
                         fragment = new BankFragment();
                         break;
+
+                    case R.id.news:
+                        fragment = new NewsFragment();
+                        break;
+
                     case R.id.gallery:
                         fragment = new GalleryFragment();
                         break;
+
+
+
                 }
                 if (fragment!=null){
                     getSupportFragmentManager().beginTransaction().replace(R.id.container,fragment).commit();

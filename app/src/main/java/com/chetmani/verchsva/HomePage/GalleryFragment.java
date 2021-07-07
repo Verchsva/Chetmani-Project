@@ -16,7 +16,6 @@ import android.view.ViewGroup;
 import com.chetmani.verchsva.R;
 import com.chetmani.verchsva.Utils;
 import com.chetmani.verchsva.gallery.GalleryAdapter;
-import com.chetmani.verchsva.gallery.GalleryData;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -31,10 +30,6 @@ import java.util.List;
  * create an instance of this fragment.
  */
 public class GalleryFragment extends Fragment {
-
-    RecyclerView recyclerView;
-    RecyclerView.Adapter galleryAdapter;
-    RecyclerView.LayoutManager layoutManager;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -76,20 +71,20 @@ public class GalleryFragment extends Fragment {
 //        recyclerView.setLayoutManager(layoutManager);
 //        galleryAdapter=new GalleryAdapter(getContext(),galleryImages);
 //        recyclerView.setAdapter(galleryAdapter);
-        RecyclerView recyclerView=getView().findViewById(R.id.rv_gallery);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
-        GalleryData[] galleryData= new GalleryData[]{
-            new GalleryData(R.drawable.bannerrrr),
-                new GalleryData(R.drawable.bannerr),
-                new GalleryData(R.drawable.banner),
-                new GalleryData(R.drawable.bannerrrrrr),
-
-        };
-
-        GalleryAdapter galleryAdapter= new GalleryAdapter(galleryData,GalleryFragment.this);
-        recyclerView.setAdapter(galleryAdapter);
+//        RecyclerView recyclerView=getView().findViewById(R.id.rv_gallery);
+//        recyclerView.setHasFixedSize(true);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+//
+//        GalleryData[] galleryData= new GalleryData[]{
+//            new GalleryData(R.drawable.bannerrrr),
+//                new GalleryData(R.drawable.bannerr),
+//                new GalleryData(R.drawable.banner),
+//                new GalleryData(R.drawable.bannerrrrrr),
+//
+//        };
+//
+//        GalleryAdapter galleryAdapter= new GalleryAdapter(galleryData,GalleryFragment.this);
+//        recyclerView.setAdapter(galleryAdapter);
 
 
         if (getArguments() != null) {
@@ -114,32 +109,32 @@ public class GalleryFragment extends Fragment {
 
        @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+           super.onActivityCreated(savedInstanceState);
 
-        RecyclerView rvImages = getView().findViewById(R.id.rv_images);
-        rvImages.setLayoutManager(new GridLayoutManager(getContext(), 3, RecyclerView.VERTICAL, false));
-        final GalleryAdapter galleryAdapter = new GalleryAdapter();
-        rvImages.setAdapter(galleryAdapter);
+           RecyclerView rvImages = getView().findViewById(R.id.rv_images);
+           rvImages.setLayoutManager(new GridLayoutManager(getContext(), 3, RecyclerView.VERTICAL, false));
+           final GalleryAdapter galleryAdapter = new GalleryAdapter();
+           rvImages.setAdapter(galleryAdapter);
 
-        DatabaseReference databaseReference = Utils.getInstance().getReference().child("IMAGES");
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                List<String> strings = new ArrayList<>();
-                int index = 1;
-                while (snapshot.hasChild("" + index)) {
-                    Object value = snapshot.child("" + index).getValue();
-                    if (value != null) {
-                        strings.add(value.toString());
-                    }
-                    index++;
-                }
-                galleryAdapter.addItems(strings);
-            }
+           DatabaseReference databaseReference = Utils.getInstance().getReference().child("IMAGES");
+           databaseReference.addValueEventListener(new ValueEventListener() {
+               @Override
+               public void onDataChange(@NonNull DataSnapshot snapshot) {
+                   List<String> strings = new ArrayList<>();
+                   int index = 1;
+                   while (snapshot.hasChild("" + index)) {
+                       Object value = snapshot.child("" + index).getValue();
+                       if (value != null) {
+                           strings.add(value.toString());
+                       }
+                       index++;
+                   }
+                   galleryAdapter.addItems(strings);
+               }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+               @Override
+               public void onCancelled(@NonNull DatabaseError error) {
 
-            }
-        });
-    }
+               }
+           });
+       }}
