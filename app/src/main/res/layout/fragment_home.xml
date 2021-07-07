@@ -13,7 +13,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/news_feed"
+            android:id="@+id/news_feed_1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -39,9 +39,36 @@
             android:layout_marginTop="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/news_feed" />
+            app:layout_constraintTop_toBottomOf="@+id/news_feed_1" />
 
+        <TextView
+        android:id="@+id/news_feed_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="#ffffff"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:freezesText="true"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
+        android:text="हमारी दुकान प्रत्येक मंगलवार, गुरुवार, शनिवार को खोली जाती है|"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textColor="#000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rv_slideshow_images" />
 
+        <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_bhaw_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/news_feed_2" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

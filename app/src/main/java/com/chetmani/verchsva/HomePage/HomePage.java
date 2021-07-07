@@ -37,12 +37,12 @@ public class HomePage extends AppCompatActivity {
                         fragment = new BankFragment();
                         break;
 
-                    case R.id.news:
-                        fragment = new NewsFragment();
-                        break;
-
                     case R.id.gallery:
                         fragment = new GalleryFragment();
+                        break;
+
+                    case R.id.news:
+                        fragment = new NewsFragment();
                         break;
 
 
