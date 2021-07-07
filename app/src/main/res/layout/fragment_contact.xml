@@ -1,203 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#D3D3D3"
     tools:context=".HomePage.ContactFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/tv_heading_contact_details"
-            android:layout_width="wrap_content"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_address"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="20dp"
-            app:layout_constraintTop_toTopOf="parent"
+            app:cardCornerRadius="10dp"
             app:layout_constraintStart_toStartOf="parent"
-            android:text="Address Details:"
-            android:textSize="30sp"
-            android:textColor="#000"
-            android:textStyle="bold"/>
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:background="#fff">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cv_address"
-        android:layout_width="match_parent"
-        android:layout_height="90dp"
-        app:cardCornerRadius="20dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_heading_contact_details"
-        app:layout_constraintEnd_toEndOf="parent">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-<!--        <RelativeLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:background="#000">-->
+            <TextView
+                android:id="@+id/tv_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Address:"
+                android:paddingLeft="10dp"
+                android:textColor="#000"
+                android:paddingTop="10dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textStyle="bold"
+                android:textSize="25sp"/>
+
+            <TextView
+                android:id="@+id/tv_gold_shop_address"
+                android:layout_width="wrap_content"
+                android:paddingTop="10dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/tv_address"
+                android:text="(Gold Shop)  CK 21/39A Thatheri Bazzar, Chowk,Varanasi"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColor="#000"
+                android:textSize="16sp"
+                android:paddingLeft="40dp"/>
+
+                <TextView
+                    android:id="@+id/tv_silver_shop_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_gold_shop_address"
+                    android:text="(Silver Shop)  CK 21/3 Lakhi Chautra, Chowk,Varanasi"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:textColor="#000"
+                    android:textSize="16sp"
+                    android:paddingLeft="40dp"
+                    android:paddingBottom="10dp"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_contact_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cv_address">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/tv_heading_address"
+                    android:id="@+id/tv_contact_details"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+                    android:text="Contact Details:"
+                    android:paddingLeft="10dp"
+                    android:textColor="#000"
+                    android:paddingTop="10dp"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    android:text="Address Gold Shop:"
-                    android:textSize="26sp"
+                    android:textStyle="bold"
+                    android:textSize="25sp"/>
+
+                <TextView
+                    android:id="@+id/tv_contact_name_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ballabh Agrawal"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_contact_details"
                     android:textColor="#000"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
                     android:textStyle="bold"/>
 
                 <TextView
-                    android:id="@+id/tv_address_1"
-                    android:layout_width="match_parent"
+                    android:id="@+id/tv_contact_number_1"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="8601669197"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="10dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_heading_address"
-                    android:text="CK 21/39A Thatheri Bazzar,Varanasi"
-                    android:singleLine="true"
-                    android:textColor="#000"
-                    android:textSize="20sp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="8dp"
-                    android:textStyle="bold"/>
+                    app:layout_constraintTop_toBottomOf="@+id/tv_contact_name_1"
+
+                <ImageView
+                    android:id="@+id/iv_phone_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_contact_details"
+                    app:layout_constraintStart_toEndOf="@+id/tv_contact_name_1"
+                    android:paddingTop="20dp"
+                    android:paddingLeft="100dp"
+                    app:layout_constraintEnd_toStartOf="@id/iv_whatsapp_1"
+                    android:src="@drawable/ic_baseline_local_phone_24"/>
+
+                <ImageView
+                    android:id="@+id/iv_whatsapp_1"
+                    android:layout_width="50dp"
+                    android:layout_height="24dp"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_contact_details"
+                    android:paddingTop="20dp"
+                    android:paddingLeft="20dp"
+                    app:layout_constraintStart_toEndOf="@id/iv_phone_1"
+                    android:src="@drawable/whatsapp_log"/>
+
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.cardview.widget.CardView>
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cv_address_2"
-            android:layout_width="match_parent"
-            android:layout_height="90dp"
-            app:cardCornerRadius="20dp"
-            android:layout_marginTop="20dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cv_address"
-            app:layout_constraintEnd_toEndOf="parent">
-
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/tv_heading_address_2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        android:text="Address Silver Shop:"
-                        android:textSize="26sp"
-                        android:textColor="#000"
-                        android:textStyle="bold"/>
-
-                    <TextView
-                        android:id="@+id/tv_address_2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_heading_address_2"
-                        android:text="CK 21/3 Lakhi Chautra,Chowk,Varanasi"
-                        android:singleLine="true"
-                        android:textColor="#000"
-                        android:textSize="20sp"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="8dp"
-                        android:textStyle="bold"/>
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cv_contact"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            app:cardElevation="50dp"
-            app:cardCornerRadius="25dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cv_address_2"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_margin="10dp">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#000">
+</androidx.constraintlayout.widget.ConstraintLayout>
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-<!--                    <TextView-->
-<!--                        android:id="@+id/tv_heading_contact_details"-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_marginLeft="10dp"-->
-<!--                        app:layout_constraintTop_toTopOf="parent"-->
-<!--                        app:layout_constraintStart_toStartOf="parent"-->
-<!--                        android:text="Contact Details:"-->
-<!--                        android:textSize="26sp"-->
-<!--                        android:textColor="#fff"-->
-<!--                        android:textStyle="bold"/>-->
-                    <androidx.cardview.widget.CardView
-                    android:id="@+id/cv_contact_1"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    app:cardCornerRadius="15dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_heading_contact_details"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_margin="10dp">
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="#fff">
-                            <androidx.constraintlayout.widget.ConstraintLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent">
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="match_parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent"
-                                    android:text="Office"
-                                    android:textColor="#000"
-                                    android:textSize="20sp"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    android:layout_margin="10dp"/>
-
-                            </androidx.constraintlayout.widget.ConstraintLayout>
-                        </RelativeLayout>
-                    </androidx.cardview.widget.CardView>
-
-<!--                    <TextView-->
-<!--                        android:id="@+id/tv_contact_name_1"-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        app:layout_constraintStart_toStartOf="parent"-->
-<!--                        app:layout_constraintTop_toBottomOf="@+id/tv_heading_contact_details"-->
-<!--                        android:text="Office"-->
-<!--                        android:singleLine="true"-->
-<!--                        android:textColor="#fff"-->
-<!--                        android:textSize="20sp"-->
-<!--                        android:layout_marginLeft="20dp"-->
-<!--                        android:layout_marginTop="8dp"-->
-<!--                        android:textStyle="bold"/>-->
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </RelativeLayout>
-        </androidx.cardview.widget.CardView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
