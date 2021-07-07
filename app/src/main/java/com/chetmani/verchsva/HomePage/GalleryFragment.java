@@ -2,7 +2,10 @@ package com.chetmani.verchsva.HomePage;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -11,8 +14,16 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.chetmani.verchsva.R;
+import com.chetmani.verchsva.Utils;
 import com.chetmani.verchsva.gallery.GalleryAdapter;
 import com.chetmani.verchsva.gallery.GalleryData;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -99,4 +110,36 @@ public class GalleryFragment extends Fragment {
 //        galleryAdapter=new GalleryAdapter(GalleryData[],GalleryFragment.this);
 //        recyclerView.setAdapter(galleryAdapter);
        return inflater.inflate(R.layout.fragment_gallery, container, false); }
-}
+
+
+       @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        RecyclerView rvImages = getView().findViewById(R.id.rv_images);
+        rvImages.setLayoutManager(new GridLayoutManager(getContext(), 3, RecyclerView.VERTICAL, false));
+        final GalleryAdapter galleryAdapter = new GalleryAdapter();
+        rvImages.setAdapter(galleryAdapter);
+
+        DatabaseReference databaseReference = Utils.getInstance().getReference().child("IMAGES");
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                List<String> strings = new ArrayList<>();
+                int index = 1;
+                while (snapshot.hasChild("" + index)) {
+                    Object value = snapshot.child("" + index).getValue();
+                    if (value != null) {
+                        strings.add(value.toString());
+                    }
+                    index++;
+                }
+                galleryAdapter.addItems(strings);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
