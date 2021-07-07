@@ -2,18 +2,26 @@ package com.chetmani.verchsva.HomePage;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.chetmani.verchsva.R;
+import com.chetmani.verchsva.Utils;
 import com.chetmani.verchsva.slideshow.DataForImageSlider;
 import com.chetmani.verchsva.slideshow.ImageSliderAdapter;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 
 
 import java.util.ArrayList;
@@ -111,4 +119,38 @@ public class HomeFragment extends Fragment {
 //        dataForImageSliders.add(new DataForImageSlider("R.drawable.bannerrrrrrr","4"));
 //    }
 //}
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        onRefresh();
+
+        RecyclerView rvSlideshow = getView().findViewById(R.id.rv_slideshow_images);
+        rvSlideshow.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false));
+        final SlideshowAdapter slideshowAdapter = new SlideshowAdapter();
+        rvSlideshow.setAdapter(slideshowAdapter);
+
+        DatabaseReference databaseReference = Utils.getInstance().getReference().child("SLIDESHOW");
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Log.v(TAG, "***** onDataChange");
+                List<String> strings = new ArrayList<>();
+                int index = 1;
+                while (snapshot.hasChild("" + index)) {
+                    Object value = snapshot.child("" + index).getValue();
+                    if (value != null) {
+                        strings.add(value.toString());
+                    }
+                    index++;
+                }
+                slideshowAdapter.addItems(strings);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
 }
