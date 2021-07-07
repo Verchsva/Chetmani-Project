@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,8 +15,6 @@ import android.view.ViewGroup;
 
 import com.chetmani.verchsva.R;
 import com.chetmani.verchsva.Utils;
-import com.chetmani.verchsva.slideshow.DataForImageSlider;
-import com.chetmani.verchsva.slideshow.ImageSliderAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
