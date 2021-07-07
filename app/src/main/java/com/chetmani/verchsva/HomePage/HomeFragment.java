@@ -87,12 +87,6 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false);
-
-        news_feed = findViewById(R.id.news_feed);
-
-        TextView textView = root.findViewById(R.id.news_feed);
-        textView.setEllipsize(TextUtils.TruncateAt.MARQUEE);
-        textView.setSelected(true);
     }
 
 //    private void setAdapter() {
