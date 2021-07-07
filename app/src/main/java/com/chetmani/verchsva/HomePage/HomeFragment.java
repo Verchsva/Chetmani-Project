@@ -8,10 +8,12 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.chetmani.verchsva.R;
 import com.chetmani.verchsva.Utils;
@@ -36,6 +38,7 @@ public class HomeFragment extends Fragment {
 
     RecyclerView recyclerView;
 
+    TextView  news_feed;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -84,6 +87,12 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false);
+
+        news_feed = findViewById(R.id.news_feed);
+
+        TextView textView = root.findViewById(R.id.news_feed);
+        textView.setEllipsize(TextUtils.TruncateAt.MARQUEE);
+        textView.setSelected(true);
     }
 
 //    private void setAdapter() {
