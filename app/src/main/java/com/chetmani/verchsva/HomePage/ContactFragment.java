@@ -28,6 +28,7 @@ import com.chetmani.verchsva.R;
  */
 public class ContactFragment extends Fragment {
 
+    private int Make_Phone_Call=1;
     ImageView call1,call2,call3,call4,call5;
     ImageView wa1,wa2,wa3,wa4;
 
@@ -168,14 +169,14 @@ public class ContactFragment extends Fragment {
     }
 
     private void requestCallPermission(){
-        if(ActivityCompat.shouldShowRequestPermissionRationale(this,Manifest.permission.CALL_PHONE)){
+        if(ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),Manifest.permission.CALL_PHONE)){
             new AlertDialog.Builder(getContext())
                     .setTitle("Permission Needed")
                     .setMessage("This is required to make call")
                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            ActivityCompat.requestPermissions(ContactFragment.this,new String[]{Manifest.permission.CALL_PHONE},Make_Phone_Call);
+                            ActivityCompat.requestPermissions(getActivity(),new String[]{Manifest.permission.CALL_PHONE},Make_Phone_Call);
                         }
                     })
                     .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -187,7 +188,7 @@ public class ContactFragment extends Fragment {
                     .create().show();
         }
         else {
-            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.CALL_PHONE},Make_Phone_Call);
+            ActivityCompat.requestPermissions(getActivity(),new String[]{Manifest.permission.CALL_PHONE},Make_Phone_Call);
         }
     }
 }
