@@ -17,10 +17,14 @@ import android.widget.TextView;
 
 import com.chetmani.verchsva.R;
 import com.chetmani.verchsva.Utils;
+import com.chetmani.verchsva.bhawDetails.BhawDetailsAdapter;
+import com.chetmani.verchsva.bhawDetails.BhawDetailsData;
 import com.chetmani.verchsva.slideshow.SlideshowAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 
@@ -38,7 +42,7 @@ public class HomeFragment extends Fragment {
 
     RecyclerView recyclerView;
 
-    TextView  news_feed;
+    TextView news_feed;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -87,6 +91,7 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false);
+
     }
 
 //    private void setAdapter() {
@@ -126,6 +131,7 @@ public class HomeFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
 
+
         RecyclerView rvSlideshow = getView().findViewById(R.id.rv_slideshow_images);
         rvSlideshow.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false));
         final SlideshowAdapter slideshowAdapter = new SlideshowAdapter();
@@ -153,5 +159,24 @@ public class HomeFragment extends Fragment {
 
             }
         });
+        BhawDetailsDatabaseReference();
     }
+
+    private void BhawDetailsDatabaseReference() {
+
+        BhawDetailsAdapter bhawDetailsAdapter;
+        RecyclerView rvBhawDetails = getView().findViewById(R.id.rv_bhaw_details);
+
+        rvBhawDetails.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
+
+        FirebaseRecyclerOptions<BhawDetailsData> options =
+                new FirebaseRecyclerOptions.Builder<BhawDetailsData>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("BHAW"), BhawDetailsData.class)
+                        .build();
+
+        bhawDetailsAdapter= new BhawDetailsAdapter(options);
+        rvBhawDetails.setAdapter(bhawDetailsAdapter);
+
+    }
+
 }
