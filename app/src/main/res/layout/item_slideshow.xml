@@ -1,16 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.cardview.widget.CardView
-    android:id="@+id/cv_img_slider"
-    android:layout_width="match_parent"
-    android:layout_height="200dp"
-    android:layout_marginLeft="10dp"
-    android:layout_marginRight="10dp"
-    android:background="#000"
-    app:cardCornerRadius="20dp"
-    android:layout_marginTop="10dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
 
 <androidx.appcompat.widget.AppCompatImageView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/iv_slideshow_image"
@@ -18,4 +7,3 @@
     android:layout_height="match_parent"
     android:scaleType="fitXY" />
 
-</androidx.cardview.widget.CardView>

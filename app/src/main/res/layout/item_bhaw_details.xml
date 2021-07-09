@@ -4,17 +4,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
+    android:layout_height="80dp"
     android:background="#fff">
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:scaleType="fitXY"
+        android:layout_marginStart="5dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:src="@drawable/whatsapp_logo" />
+        android:src="@drawable/whhhhh" />
 
     <TextView
         android:id="@+id/tv_itemName"
@@ -25,7 +27,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:text="Number 99.99"
         android:layout_marginStart="10dp"
-        android:textSize="14sp"
+        android:textSize="22sp"
         android:textColor="#000"/>
 
     <TextView
@@ -35,10 +37,11 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/tv_last_update_time"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="28dp"
         android:text="Rs 50000"
+        android:textSize="20sp"
         android:textColor="#000"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="20dp"
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:paddingLeft="10dp"
@@ -52,11 +55,21 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_bhav"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:text="09 July 2021, 07:50 PM"
-        android:textSize="10sp"
+        android:textSize="14sp"
         android:layout_marginTop="6dp"
         android:textColor="#000"
         android:layout_marginRight="10dp"/>
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#000"
+        app:layout_constraintTop_toBottomOf="@+id/tv_last_update_time"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 
 

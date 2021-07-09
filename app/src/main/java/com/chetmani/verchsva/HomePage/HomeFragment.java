@@ -5,9 +5,11 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -20,6 +22,7 @@ import com.chetmani.verchsva.Utils;
 import com.chetmani.verchsva.bhawDetails.BhawDetailsAdapter;
 import com.chetmani.verchsva.bhawDetails.BhawDetailsData;
 import com.chetmani.verchsva.slideshow.SlideshowAdapter;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -81,7 +84,8 @@ public class HomeFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-//        dataForImageSliders=new ArrayList<>();
+
+        //        dataForImageSliders=new ArrayList<>();
 //        setData();
 //        setAdapter();
     }
@@ -94,48 +98,15 @@ public class HomeFragment extends Fragment {
 
     }
 
-//    private void setAdapter() {
-//        recyclerView=getView().findViewById(R.id.recyclerSlider);
-//        recyclerView.setHasFixedSize(true);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL,true));
-//        sliderAdapter=new ImageSliderAdapter(getContext(),dataForImageSliders);
-//        recyclerView.setAdapter(sliderAdapter);
-//
-//        final int interval_time=3000;
-//        Handler handler=new Handler();
-//        Runnable runnable=new Runnable() {
-//            int count=0;
-//            @Override
-//            public void run() {
-//                if (count<dataForImageSliders.size()){
-//                    recyclerView.scrollToPosition(interval_time);
-//                    if (count==dataForImageSliders.size()){
-//                        count=0;
-//                    }
-//                }
-//            }
-//        };
-//        handler.postDelayed(runnable,interval_time);
-//    }
-//
-//    private void setData() {
-//        dataForImageSliders.add(new DataForImageSlider("R.drawable.bannerrrrrrr","1"));
-//        dataForImageSliders.add(new DataForImageSlider("R.drawable.bannerrrrrrr","2"));
-//        dataForImageSliders.add(new DataForImageSlider("R.drawable.bannerrrrrrr","3"));
-//        dataForImageSliders.add(new DataForImageSlider("R.drawable.bannerrrrrrr","4"));
-//    }
-//}
-
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
-
 
         RecyclerView rvSlideshow = getView().findViewById(R.id.rv_slideshow_images);
         rvSlideshow.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false));
         final SlideshowAdapter slideshowAdapter = new SlideshowAdapter();
         rvSlideshow.setAdapter(slideshowAdapter);
+
 
         DatabaseReference databaseReference = Utils.getInstance().getReference().child("SLIDESHOW");
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -167,16 +138,18 @@ public class HomeFragment extends Fragment {
         BhawDetailsAdapter bhawDetailsAdapter;
         RecyclerView rvBhawDetails = getView().findViewById(R.id.rv_bhaw_details);
 
-        rvBhawDetails.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
+        rvBhawDetails.setLayoutManager(new LinearLayoutManager(getContext()));
+
 
         FirebaseRecyclerOptions<BhawDetailsData> options =
                 new FirebaseRecyclerOptions.Builder<BhawDetailsData>()
-                        .setQuery(FirebaseDatabase.getInstance().getReference().child("BHAW"), BhawDetailsData.class)
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Bhaw"), BhawDetailsData.class)
+                        .setLifecycleOwner(this)
                         .build();
 
-        bhawDetailsAdapter= new BhawDetailsAdapter(options);
+
+        bhawDetailsAdapter = new BhawDetailsAdapter(options);
         rvBhawDetails.setAdapter(bhawDetailsAdapter);
 
     }
-
 }

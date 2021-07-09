@@ -1,19 +1,34 @@
 package com.chetmani.verchsva.bhawDetails;
 
+import android.view.View;
+
 public class BhawDetailsData {
 
     String imgUrl,itemName,bhawDetails,updatedTime;
+    View line;
 
-    BhawDetailsData(){
+    public View getLine() {
+        return line;
+    }
+
+    public void setLine(View line) {
+        this.line = line;
+    }
+
+    @Override
+    public String toString() {
+        return "BhawDetailsData{" +
+                "imgUrl='" + imgUrl + '\'' +
+                ", itemName='" + itemName + '\'' +
+                ", bhawDetails='" + bhawDetails + '\'' +
+                ", updatedTime='" + updatedTime + '\'' +
+                '}';
+    }
+
+    public BhawDetailsData(){
 
     }
 
-    public BhawDetailsData(String imgUrl, String itemName, String bhawDetails, String updatedTime) {
-        this.imgUrl = imgUrl;
-        this.itemName = itemName;
-        this.bhawDetails = bhawDetails;
-        this.updatedTime = updatedTime;
-    }
 
     public String getImgUrl() {
         return imgUrl;
