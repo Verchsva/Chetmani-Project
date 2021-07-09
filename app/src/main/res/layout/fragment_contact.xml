@@ -124,8 +124,10 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toBottomOf="@+id/tv_contact_details"
                     app:layout_constraintStart_toEndOf="@+id/tv_contact_number_1"
-                    android:paddingTop="32dp"
-                    android:paddingLeft="100dp"
+                    android:layout_marginTop="24dp"
+                    android:padding="8dp"
+                    android:background="@drawable/contact"
+                    android:layout_marginStart="92dp"
                     app:layout_constraintEnd_toStartOf="@id/iv_whatsapp_1"
                     android:src="@drawable/ic_baseline_local_phone_24"/>
 
@@ -133,12 +135,14 @@
                     android:id="@+id/iv_whatsapp_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_contact_details"
-                    android:paddingTop="32dp"
-                    android:paddingLeft="20dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/contact"
+                    android:padding="8dp"
                     android:scaleType="fitCenter"
+                    android:src="@drawable/ic_baseline_local_phone_24"
                     app:layout_constraintStart_toEndOf="@id/iv_phone_1"
-                    android:src="@drawable/ic_baseline_local_phone_24"/>
+                    app:layout_constraintTop_toBottomOf="@+id/tv_contact_details" />
 
                 <TextView
                     android:id="@+id/tv_contact_name_2"
@@ -168,8 +172,10 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toBottomOf="@+id/tv_contact_number_1"
                     app:layout_constraintStart_toEndOf="@+id/tv_contact_number_2"
-                    android:paddingTop="30dp"
-                    android:paddingLeft="100dp"
+                    android:layout_marginTop="24dp"
+                    android:padding="8dp"
+                    android:background="@drawable/contact"
+                    android:layout_marginStart="92dp"
                     app:layout_constraintEnd_toStartOf="@id/iv_whatsapp_2"
                     android:src="@drawable/ic_baseline_local_phone_24"/>
 
@@ -178,8 +184,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toBottomOf="@+id/tv_contact_number_1"
-                    android:paddingTop="30dp"
-                    android:paddingLeft="20dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/contact"
+                    android:padding="8dp"
                     android:scaleType="fitCenter"
                     app:layout_constraintStart_toEndOf="@id/iv_phone_2"
                     android:src="@drawable/ic_baseline_local_phone_24"/>
@@ -212,8 +220,10 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toBottomOf="@+id/tv_contact_number_2"
                     app:layout_constraintStart_toEndOf="@+id/tv_contact_number_3"
-                    android:paddingTop="30dp"
-                    android:paddingLeft="100dp"
+                    android:layout_marginTop="24dp"
+                    android:padding="8dp"
+                    android:background="@drawable/contact"
+                    android:layout_marginStart="92dp"
                     app:layout_constraintEnd_toStartOf="@id/iv_whatsapp_3"
                     android:src="@drawable/ic_baseline_local_phone_24"/>
 
@@ -222,8 +232,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toBottomOf="@+id/tv_contact_number_2"
-                    android:paddingTop="30dp"
-                    android:paddingLeft="20dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/contact"
+                    android:padding="8dp"
                     app:layout_constraintStart_toEndOf="@id/iv_phone_3"
                     android:src="@drawable/ic_baseline_local_phone_24"/>
 
@@ -255,8 +267,10 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toBottomOf="@+id/tv_contact_number_3"
                     app:layout_constraintStart_toEndOf="@+id/tv_contact_number_4"
-                    android:paddingTop="30dp"
-                    android:paddingLeft="90dp"
+                    android:layout_marginTop="24dp"
+                    android:padding="8dp"
+                    android:background="@drawable/contact"
+                    android:layout_marginStart="82dp"
                     app:layout_constraintEnd_toStartOf="@id/iv_whatsapp_4"
                     android:src="@drawable/ic_baseline_local_phone_24"/>
 
@@ -265,8 +279,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toBottomOf="@+id/tv_contact_number_3"
-                    android:paddingTop="30dp"
-                    android:paddingLeft="20dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/contact"
+                    android:padding="8dp"
                     app:layout_constraintStart_toEndOf="@id/iv_phone_4"
                     android:src="@drawable/ic_baseline_local_phone_24"/>
 
@@ -299,8 +315,10 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toBottomOf="@+id/tv_contact_number_4"
                     app:layout_constraintStart_toEndOf="@+id/tv_contact_number_5"
-                    android:paddingTop="30dp"
-                    android:paddingLeft="90dp"
+                    android:layout_marginTop="24dp"
+                    android:padding="8dp"
+                    android:background="@drawable/contact"
+                    android:layout_marginStart="82dp"
                     android:src="@drawable/ic_baseline_local_phone_24"/>
 
 
