@@ -5,9 +5,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.chetmani.verchsva.R;
+import com.chetmani.verchsva.bhawDetails.BhawDetailsAdapter;
+import com.chetmani.verchsva.bhawDetails.BhawDetailsData;
+import com.chetmani.verchsva.newsUpdates.NewsUpdatesAdapter;
+import com.chetmani.verchsva.newsUpdates.NewsUpdatesData;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.FirebaseDatabase;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -61,5 +70,32 @@ public class NewsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_news, container, false);
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        NewsUpdateDatabaseReference();
+    }
+
+    private void NewsUpdateDatabaseReference() {
+
+        NewsUpdatesAdapter newsUpdatesAdapter;
+        RecyclerView rvNewsUpdates = getView().findViewById(R.id.rv_news_updates);
+
+        rvNewsUpdates.setLayoutManager(new LinearLayoutManager(getContext()));
+
+
+        FirebaseRecyclerOptions<NewsUpdatesData> options =
+                new FirebaseRecyclerOptions.Builder<NewsUpdatesData>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("NewsUpdates"), NewsUpdatesData.class)
+                        .setLifecycleOwner(this)
+                        .build();
+
+
+        newsUpdatesAdapter = new NewsUpdatesAdapter(options);
+        rvNewsUpdates.setAdapter(newsUpdatesAdapter);
+
     }
 }

@@ -16,9 +16,15 @@ import android.view.ViewGroup;
 import com.chetmani.verchsva.R;
 import com.chetmani.verchsva.Utils;
 import com.chetmani.verchsva.gallery.GalleryAdapter;
+import com.chetmani.verchsva.gallery.GalleryListViewAdapter;
+import com.chetmani.verchsva.gallery.GalleryListViewData;
+import com.chetmani.verchsva.newsUpdates.NewsUpdatesAdapter;
+import com.chetmani.verchsva.newsUpdates.NewsUpdatesData;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -65,26 +71,7 @@ public class GalleryFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        recyclerView=getView().findViewById(R.id.rv_gallery);
-//        recyclerView.setHasFixedSize(true);
-//        layoutManager=new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,true);
-//        recyclerView.setLayoutManager(layoutManager);
-//        galleryAdapter=new GalleryAdapter(getContext(),galleryImages);
-//        recyclerView.setAdapter(galleryAdapter);
-//        RecyclerView recyclerView=getView().findViewById(R.id.rv_gallery);
-//        recyclerView.setHasFixedSize(true);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 //
-//        GalleryData[] galleryData= new GalleryData[]{
-//            new GalleryData(R.drawable.bannerrrr),
-//                new GalleryData(R.drawable.bannerr),
-//                new GalleryData(R.drawable.banner),
-//                new GalleryData(R.drawable.bannerrrrrr),
-//
-//        };
-//
-//        GalleryAdapter galleryAdapter= new GalleryAdapter(galleryData,GalleryFragment.this);
-//        recyclerView.setAdapter(galleryAdapter);
 
 
         if (getArguments() != null) {
@@ -96,45 +83,68 @@ public class GalleryFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-//       final View root= inflater.inflate(R.layout.fragment_gallery, container, false);
-//        recyclerView=root.findViewById(R.id.rv_gallery);
-//        recyclerView.setHasFixedSize(true);
-//        layoutManager=new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,true);
-//        recyclerView.setLayoutManager(layoutManager);
-//        galleryAdapter=new GalleryAdapter(GalleryData[],GalleryFragment.this);
-//        recyclerView.setAdapter(galleryAdapter);
        return inflater.inflate(R.layout.fragment_gallery, container, false); }
 
 
        @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
            super.onActivityCreated(savedInstanceState);
+//           GalleryGridView();
+           GalleryListView();
+          }
 
-           RecyclerView rvImages = getView().findViewById(R.id.rv_images);
-           rvImages.setLayoutManager(new GridLayoutManager(getContext(), 3, RecyclerView.VERTICAL, false));
-           final GalleryAdapter galleryAdapter = new GalleryAdapter();
-           rvImages.setAdapter(galleryAdapter);
+    private void GalleryListView() {
 
-           DatabaseReference databaseReference = Utils.getInstance().getReference().child("IMAGES");
-           databaseReference.addValueEventListener(new ValueEventListener() {
-               @Override
-               public void onDataChange(@NonNull DataSnapshot snapshot) {
-                   List<String> strings = new ArrayList<>();
-                   int index = 1;
-                   while (snapshot.hasChild("" + index)) {
-                       Object value = snapshot.child("" + index).getValue();
-                       if (value != null) {
-                           strings.add(value.toString());
-                       }
-                       index++;
-                   }
-                   galleryAdapter.addItems(strings);
-               }
+        GalleryListViewAdapter galleryListViewAdapter;
+        RecyclerView rvGalleryListView = getView().findViewById(R.id.rv_images);
 
-               @Override
-               public void onCancelled(@NonNull DatabaseError error) {
+        rvGalleryListView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-               }
-           });
-       }}
+
+        FirebaseRecyclerOptions<GalleryListViewData> options =
+                new FirebaseRecyclerOptions.Builder<GalleryListViewData>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("GalleryList"), GalleryListViewData.class)
+                        .setLifecycleOwner(this)
+                        .build();
+
+
+        galleryListViewAdapter = new GalleryListViewAdapter(options);
+        rvGalleryListView.setAdapter(galleryListViewAdapter);
+
+
+
+
+    }
+
+    private void GalleryGridView() {
+        RecyclerView rvImages = getView().findViewById(R.id.rv_images);
+        rvImages.setLayoutManager(new GridLayoutManager(getContext(), 3, RecyclerView.VERTICAL, false));
+        final GalleryAdapter galleryAdapter = new GalleryAdapter();
+        rvImages.setAdapter(galleryAdapter);
+
+        DatabaseReference databaseReference = Utils.getInstance().getReference().child("IMAGES");
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                List<String> strings = new ArrayList<>();
+                int index = 1;
+                while (snapshot.hasChild("" + index)) {
+                    Object value = snapshot.child("" + index).getValue();
+                    if (value != null) {
+                        strings.add(value.toString());
+                    }
+                    index++;
+                }
+                galleryAdapter.addItems(strings);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+    }
+
+
+
