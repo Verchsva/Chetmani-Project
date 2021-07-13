@@ -1,9 +1,17 @@
 package com.chetmani.verchsva.HomePage;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,8 +21,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
+import com.chetmani.verchsva.BuildConfig;
 import com.chetmani.verchsva.R;
 import com.chetmani.verchsva.Utils;
 import com.chetmani.verchsva.bhawDetails.BhawDetailsAdapter;
@@ -29,6 +39,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,8 +56,10 @@ import static android.content.ContentValues.TAG;
 public class HomeFragment extends Fragment {
 
     RecyclerView recyclerView;
+    Button share;
+    ConstraintLayout constraintLayout;
+    TextView news_feed,news_feed_1;
 
-    TextView news_feed;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -91,14 +107,33 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
 
-        news_feed=
+        final View root = inflater.inflate(R.layout.fragment_home, container, false);
 
-        TextView textView = findViewById(R.id.news_feed);
+        news_feed=root.findViewById(R.id.news_feed_1);
+
+        TextView textView =root.findViewById(R.id.news_feed_1);
         textView.setEllipsize(TextUtils.TruncateAt.MARQUEE);
         textView.setSelected(true);
+
+        news_feed_1=root.findViewById(R.id.news_feed_2);
+
+        TextView textView1 =root.findViewById(R.id.news_feed_2);
+        textView1.setEllipsize(TextUtils.TruncateAt.MARQUEE);
+        textView1.setSelected(true);
+
+
+        share=root.findViewById(R.id.btn_share);
+        constraintLayout=root.findViewById(R.id.constraintLayout);
+        share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                share();
+            }
+        });
+
+        return root;
 
     }
 
@@ -135,6 +170,48 @@ public class HomeFragment extends Fragment {
             }
         });
         BhawDetailsDatabaseReference();
+
+    }
+
+    private void share() {
+        Bitmap bitmap=getBitmapFromView(constraintLayout);
+        try {
+            File file=new File(getContext().getExternalCacheDir(),"bhawdetails.jpg");
+            FileOutputStream fout=new FileOutputStream(file);
+            bitmap.compress(Bitmap.CompressFormat.JPEG,100,fout);
+            fout.flush();
+            fout.close();
+            file.setReadable(true,false);
+
+            final Intent intent=new Intent(Intent.ACTION_SEND);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            Uri photoUri= FileProvider.getUriForFile(getContext(), BuildConfig.APPLICATION_ID+".provider",file);
+            intent.putExtra(Intent.EXTRA_STREAM, photoUri);
+            intent.setType("image/png");
+
+            startActivity(Intent.createChooser(intent,"share by"));
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @SuppressLint("ResourceAsColor")
+    private Bitmap  getBitmapFromView(View view){
+        Bitmap returnedBitmap=Bitmap.createBitmap(view.getWidth(),view.getHeight(),Bitmap.Config.ARGB_8888);
+        Canvas canvas=new Canvas(returnedBitmap);
+        Drawable bgDrawable=view.getBackground();
+        if (bgDrawable != null){
+            bgDrawable.draw(canvas);
+        }
+        else {
+            canvas.drawColor(android.R.color.white);
+        }
+        view.draw(canvas);
+
+        return returnedBitmap;
     }
 
     private void BhawDetailsDatabaseReference() {

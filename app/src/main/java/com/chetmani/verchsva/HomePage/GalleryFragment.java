@@ -96,7 +96,7 @@ public class GalleryFragment extends Fragment {
     private void GalleryListView() {
 
         GalleryListViewAdapter galleryListViewAdapter;
-        RecyclerView rvGalleryListView = getView().findViewById(R.id.rv_images);
+        RecyclerView rvGalleryListView = getView().findViewById(R.id.rv_gallery_item_list);
 
         rvGalleryListView.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -116,34 +116,34 @@ public class GalleryFragment extends Fragment {
 
     }
 
-    private void GalleryGridView() {
-        RecyclerView rvImages = getView().findViewById(R.id.rv_images);
-        rvImages.setLayoutManager(new GridLayoutManager(getContext(), 3, RecyclerView.VERTICAL, false));
-        final GalleryAdapter galleryAdapter = new GalleryAdapter();
-        rvImages.setAdapter(galleryAdapter);
-
-        DatabaseReference databaseReference = Utils.getInstance().getReference().child("IMAGES");
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                List<String> strings = new ArrayList<>();
-                int index = 1;
-                while (snapshot.hasChild("" + index)) {
-                    Object value = snapshot.child("" + index).getValue();
-                    if (value != null) {
-                        strings.add(value.toString());
-                    }
-                    index++;
-                }
-                galleryAdapter.addItems(strings);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-    }
+//    private void GalleryGridView() {
+//        RecyclerView rvImages = getView().findViewById(R.id.rv_images);
+//        rvImages.setLayoutManager(new GridLayoutManager(getContext(), 3, RecyclerView.VERTICAL, false));
+//        final GalleryAdapter galleryAdapter = new GalleryAdapter();
+//        rvImages.setAdapter(galleryAdapter);
+//
+//        DatabaseReference databaseReference = Utils.getInstance().getReference().child("IMAGES");
+//        databaseReference.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                List<String> strings = new ArrayList<>();
+//                int index = 1;
+//                while (snapshot.hasChild("" + index)) {
+//                    Object value = snapshot.child("" + index).getValue();
+//                    if (value != null) {
+//                        strings.add(value.toString());
+//                    }
+//                    index++;
+//                }
+//                galleryAdapter.addItems(strings);
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
+//    }
     }
 
 
