@@ -22,6 +22,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.chetmani.verchsva.BuildConfig;
@@ -58,7 +59,7 @@ public class HomeFragment extends Fragment {
     RecyclerView recyclerView;
     Button share;
     ConstraintLayout constraintLayout;
-    TextView news_feed,news_feed_1;
+    TextView news_feed,news_feed_1,watermark;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -123,12 +124,13 @@ public class HomeFragment extends Fragment {
         textView1.setSelected(true);
 
 
+
+
         share=root.findViewById(R.id.btn_share);
         constraintLayout=root.findViewById(R.id.constraintLayout);
         share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 share();
             }
         });
@@ -202,9 +204,11 @@ public class HomeFragment extends Fragment {
     private Bitmap  getBitmapFromView(View view){
         Bitmap returnedBitmap=Bitmap.createBitmap(view.getWidth(),view.getHeight(),Bitmap.Config.ARGB_8888);
         Canvas canvas=new Canvas(returnedBitmap);
+
         Drawable bgDrawable=view.getBackground();
         if (bgDrawable != null){
             bgDrawable.draw(canvas);
+
         }
         else {
             canvas.drawColor(android.R.color.white);
