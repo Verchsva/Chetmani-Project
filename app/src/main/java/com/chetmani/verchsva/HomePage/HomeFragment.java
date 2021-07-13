@@ -5,12 +5,9 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Handler;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,8 +18,8 @@ import com.chetmani.verchsva.R;
 import com.chetmani.verchsva.Utils;
 import com.chetmani.verchsva.bhawDetails.BhawDetailsAdapter;
 import com.chetmani.verchsva.bhawDetails.BhawDetailsData;
+import com.chetmani.verchsva.bhawDetails.SpacingItemDecorator;
 import com.chetmani.verchsva.slideshow.SlideshowAdapter;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -141,6 +138,7 @@ public class HomeFragment extends Fragment {
         rvBhawDetails.setLayoutManager(new LinearLayoutManager(getContext()));
 
 
+
         FirebaseRecyclerOptions<BhawDetailsData> options =
                 new FirebaseRecyclerOptions.Builder<BhawDetailsData>()
                         .setQuery(FirebaseDatabase.getInstance().getReference().child("Bhaw"), BhawDetailsData.class)
@@ -150,6 +148,10 @@ public class HomeFragment extends Fragment {
 
         bhawDetailsAdapter = new BhawDetailsAdapter(options);
         rvBhawDetails.setAdapter(bhawDetailsAdapter);
+
+        SpacingItemDecorator itemDecorator = new SpacingItemDecorator(10);
+        rvBhawDetails.addItemDecoration(itemDecorator);
+
 
     }
 }

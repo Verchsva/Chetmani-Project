@@ -66,7 +66,7 @@ public class BhawDetailsAdapter extends FirebaseRecyclerAdapter<BhawDetailsData,
 
         ImageView ivItemLogo;
         TextView itemName, bhawDetails, updateTime;
-        View line;
+
 
 
         public BhawDetailsViewHolder(@NonNull View itemView) {
@@ -75,7 +75,6 @@ public class BhawDetailsAdapter extends FirebaseRecyclerAdapter<BhawDetailsData,
             itemName = itemView.findViewById(R.id.tv_itemName);
             bhawDetails = itemView.findViewById(R.id.tv_bhav);
             updateTime = itemView.findViewById(R.id.tv_last_update_time);
-            line = itemView.findViewById(R.id.line);
         }
     }
 }
