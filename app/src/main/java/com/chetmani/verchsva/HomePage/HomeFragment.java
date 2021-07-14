@@ -239,7 +239,5 @@ public class HomeFragment extends Fragment {
 
         SpacingItemDecorator itemDecorator = new SpacingItemDecorator(10);
         rvBhawDetails.addItemDecoration(itemDecorator);
-
-
     }
 }
