@@ -1,9 +1,16 @@
 package com.chetmani.verchsva.HomePage;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -12,7 +19,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.RelativeLayout;
 
+import com.chetmani.verchsva.BuildConfig;
 import com.chetmani.verchsva.R;
 import com.chetmani.verchsva.Utils;
 import com.chetmani.verchsva.gallery.GalleryAdapter;
@@ -27,6 +37,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,6 +50,8 @@ import java.util.List;
  * create an instance of this fragment.
  */
 public class GalleryFragment extends Fragment {
+
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -83,13 +99,18 @@ public class GalleryFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-       return inflater.inflate(R.layout.fragment_gallery, container, false); }
 
+        final View root =inflater.inflate(R.layout.fragment_gallery, container, false);
+
+        return root;
+
+    }
 
        @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
            super.onActivityCreated(savedInstanceState);
            GalleryGridView();
+
 //           GalleryListView();
           }
 
@@ -144,6 +165,7 @@ public class GalleryFragment extends Fragment {
             }
         });
     }
+
     }
 
 

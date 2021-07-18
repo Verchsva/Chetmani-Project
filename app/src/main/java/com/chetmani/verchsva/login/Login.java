@@ -42,7 +42,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         member = new Member();
         reff = Utils.getInstance().getReference().child("Member");
         sharedPref = SharedPref.getInstance(this);
-        final ProgressBar progressBar = findViewById(R.id.pb_sending_otp);
+//        final ProgressBar progressBar = findViewById(R.id.pb_sending_otp);
         btnGetOtp.setOnClickListener(this);
     }
 
@@ -50,7 +50,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     protected void onStart() {
         super.onStart();
         if (sharedPref.isUserRegistered()) {
-            openActivity2();
+            Intent intent=new Intent(this,HomePage.class);
+            startActivity(intent);
             finish();
         }
     }
@@ -76,8 +77,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         String t = mbnumber.getText().toString().trim();
         if (!t.isEmpty()) {
             if (t.length() == 10) {
-
-                openActivity2();
+                Intent intent=new Intent(this,HomePage.class);
+                startActivity(intent);
             }
         } else {
             Toast.makeText(this, "Enter Valid Phone Number", Toast.LENGTH_SHORT).show();
@@ -93,49 +94,49 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         member.setMbNumber(mbnumber.getText().toString().trim());
         reff.push().setValue(member);
         sharedPref.setUserRegistered(true);
-        Toast.makeText(Login.this, "Namaskar", Toast.LENGTH_LONG).show();
+        Toast.makeText(Login.this,"Namaskar", Toast.LENGTH_LONG).show();
     }
 
-    public void openActivity2() {
-
-        final ProgressBar progressBar= findViewById(R.id.pb_sending_otp);
-        final Button btnGeOtp= findViewById(R.id.btnGetOtp);
-        progressBar.setVisibility(View.VISIBLE);
-        btnGeOtp.setVisibility(View.INVISIBLE);
-
-        PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                "+91" + mbnumber.getText().toString(), 60, TimeUnit.SECONDS, this,
-                new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
-                    @Override
-                    public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
-                        progressBar.setVisibility(View.GONE);
-                        btnGeOtp.setVisibility(View.VISIBLE);
-                    }
-
-                    @Override
-                    public void onVerificationFailed(@NonNull FirebaseException e) {
-
-                        progressBar.setVisibility(View.GONE);
-                        btnGeOtp.setVisibility(View.VISIBLE);
-                        Toast.makeText(Login.this,e.getMessage(),Toast.LENGTH_SHORT).show();
-
-
-                    }
-
-                    @Override
-                    public void onCodeSent(@NonNull String backendotp, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
-
-                        progressBar.setVisibility(View.GONE);
-                        btnGeOtp.setVisibility(View.VISIBLE);
-                        Intent intent = new Intent(getApplicationContext(), VerifyOtp.class);
-                        intent.putExtra("mobile",mbnumber.getText().toString());
-                        intent.putExtra("backendotp",backendotp);
-                        startActivity(intent);
-                    }
-                }
-        );
+//    public void openActivity2() {
 //
-    }
+//        final ProgressBar progressBar= findViewById(R.id.pb_sending_otp);
+//        final Button btnGeOtp= findViewById(R.id.btnGetOtp);
+//        progressBar.setVisibility(View.VISIBLE);
+//        btnGeOtp.setVisibility(View.INVISIBLE);
+//
+//        PhoneAuthProvider.getInstance().verifyPhoneNumber(
+//                "+91" + mbnumber.getText().toString(), 60, TimeUnit.SECONDS, this,
+//                new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+//                    @Override
+//                    public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
+//                        progressBar.setVisibility(View.GONE);
+//                        btnGeOtp.setVisibility(View.VISIBLE);
+//                    }
+//
+//                    @Override
+//                    public void onVerificationFailed(@NonNull FirebaseException e) {
+//
+//                        progressBar.setVisibility(View.GONE);
+//                        btnGeOtp.setVisibility(View.VISIBLE);
+//                        Toast.makeText(Login.this,e.getMessage(),Toast.LENGTH_SHORT).show();
+//
+//
+//                    }
+//
+//                    @Override
+//                    public void onCodeSent(@NonNull String backendotp, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
+//
+//                        progressBar.setVisibility(View.GONE);
+//                        btnGeOtp.setVisibility(View.VISIBLE);
+//                        Intent intent = new Intent(getApplicationContext(), VerifyOtp.class);
+//                        intent.putExtra("mobile",mbnumber.getText().toString());
+//                        intent.putExtra("backendotp",backendotp);
+//                        startActivity(intent);
+//                    }
+//                }
+//        );
+////
+//    }
 
 
 }

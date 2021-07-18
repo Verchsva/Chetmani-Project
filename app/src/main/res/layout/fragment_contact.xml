@@ -140,7 +140,7 @@
                     android:background="@drawable/contact"
                     android:padding="8dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/whhhhh"
+                    android:src="@drawable/what_logo"
                     app:layout_constraintStart_toEndOf="@id/iv_phone_1"
                     app:layout_constraintTop_toBottomOf="@+id/tv_contact_details" />
 
@@ -181,16 +181,16 @@
 
                 <ImageView
                     android:id="@+id/iv_whatsapp_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     app:layout_constraintTop_toBottomOf="@+id/tv_contact_number_1"
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="24dp"
                     android:background="@drawable/contact"
                     android:padding="8dp"
-                    android:scaleType="fitCenter"
+                    android:scaleType="fitXY"
                     app:layout_constraintStart_toEndOf="@id/iv_phone_2"
-                    android:src="@drawable/ic_baseline_local_phone_24"/>
+                    android:src="@drawable/what_logo"/>
 
                 <TextView
                     android:id="@+id/tv_contact_name_3"
@@ -229,15 +229,15 @@
 
                 <ImageView
                     android:id="@+id/iv_whatsapp_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     app:layout_constraintTop_toBottomOf="@+id/tv_contact_number_2"
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="24dp"
                     android:background="@drawable/contact"
                     android:padding="8dp"
                     app:layout_constraintStart_toEndOf="@id/iv_phone_3"
-                    android:src="@drawable/ic_baseline_local_phone_24"/>
+                    android:src="@drawable/what_logo"/>
 
                 <TextView
                     android:id="@+id/tv_contact_name_4"
@@ -276,15 +276,15 @@
 
                 <ImageView
                     android:id="@+id/iv_whatsapp_4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     app:layout_constraintTop_toBottomOf="@+id/tv_contact_number_3"
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="24dp"
                     android:background="@drawable/contact"
                     android:padding="8dp"
                     app:layout_constraintStart_toEndOf="@id/iv_phone_4"
-                    android:src="@drawable/ic_baseline_local_phone_24"/>
+                    android:src="@drawable/what_logo"/>
 
                 <TextView
                     android:id="@+id/tv_contact_name_5"
