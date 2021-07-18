@@ -123,9 +123,6 @@ public class HomeFragment extends Fragment {
         textView1.setEllipsize(TextUtils.TruncateAt.MARQUEE);
         textView1.setSelected(true);
 
-
-
-
         share=root.findViewById(R.id.btn_share);
         constraintLayout=root.findViewById(R.id.constraintLayout);
         share.setOnClickListener(new View.OnClickListener() {
@@ -143,7 +140,7 @@ public class HomeFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-//        onSlidingNews();
+        onSlidingNews();
 
         RecyclerView rvSlideshow = getView().findViewById(R.id.rv_slideshow_images);
         rvSlideshow.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false));
@@ -243,22 +240,22 @@ public class HomeFragment extends Fragment {
         rvBhawDetails.addItemDecoration(itemDecorator);
     }
 
-//    public void onSlidingNews() {
-//        DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference().child("SlidingNews");
-//
-//        databaseReference.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                String news1 = dataSnapshot.child("New").getValue().toString();
-//                String news2 = dataSnapshot.child("News").getValue().toString();
-//
-//                news_feed_1.setText(news1);
-//                news_feed_2.setText(news2);
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//            }
-//        });
-//    }
+    public void onSlidingNews() {
+        DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference().child("SlidingNews");
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String news = dataSnapshot.child("New").getValue().toString();
+                String newss = dataSnapshot.child("News").getValue().toString();
+
+                news_feed_1.setText(news);
+                news_feed_2.setText(newss);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+    }
 }
