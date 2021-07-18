@@ -64,7 +64,6 @@ public class BhawDetailsAdapter extends FirebaseRecyclerAdapter<BhawDetailsData,
         if (value>=50000){
             return true;
         }
-
         return false;
     }
 
