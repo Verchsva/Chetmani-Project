@@ -240,4 +240,21 @@ public class HomeFragment extends Fragment {
         SpacingItemDecorator itemDecorator = new SpacingItemDecorator(10);
         rvBhawDetails.addItemDecoration(itemDecorator);
     }
+
+    public void onSlidingNews() {
+        reff = FirebaseDatabase.getInstance().getReference().child("SlidingNews");
+
+        reff.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String news = dataSnapshot.child("News").getValue().toString();
+
+                i.setText(news);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+    }
 }
