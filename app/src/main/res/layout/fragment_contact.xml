@@ -139,7 +139,7 @@
                     android:layout_marginTop="24dp"
                     android:background="@drawable/contact"
                     android:padding="8dp"
-                    android:scaleType="fitXY"
+                    android:scaleType="centerCrop"
                     android:src="@drawable/whhhhh"
                     app:layout_constraintStart_toEndOf="@id/iv_phone_1"
                     app:layout_constraintTop_toBottomOf="@+id/tv_contact_details" />

@@ -16,18 +16,20 @@
         android:theme="@style/AppTheme">
 
         <activity android:name=".Notification">
+        </activity>
+        <activity android:name=".login.VerifyOtp"></activity>
+        <activity android:name=".HomePage.HomePage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".login.VerifyOtp"></activity>
-        <activity android:name=".HomePage.HomePage">
-        </activity>
+
         <activity
             android:name=".FullImageActivity"
             android:screenOrientation="portrait" />
+
         <activity
             android:name=".login.Login"
             android:screenOrientation="portrait" />
@@ -46,9 +48,11 @@
             android:authorities="${applicationId}.provider"
             android:exported="false"
             android:grantUriPermissions="true">
+
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_path" />
+
         </provider>
     </application>
 

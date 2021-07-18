@@ -1,5 +1,6 @@
 package com.chetmani.verchsva.bhawDetails;
 
+import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatImageView;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -50,10 +52,22 @@ public class BhawDetailsAdapter extends FirebaseRecyclerAdapter<BhawDetailsData,
 
         holder.itemName.setText(bhawDetailsData.getItemName());
         holder.bhawDetails.setText(bhawDetailsData.getBhawDetails());
+        holder.bhawDetails.setBackgroundDrawable(ContextCompat.getDrawable(holder.bhawDetails.getContext(),isAbove(bhawDetailsData.getBhawDetails())?R.drawable.bhaw_details_plus:R.drawable.bhaw_details));
         holder.updateTime.setText(bhawDetailsData.getUpdatedTime());
         Glide.with(holder.ivItemLogo.getContext()).load(bhawDetailsData.getImgUrl()).into(holder.ivItemLogo);
 
     }
+
+    private boolean isAbove(String bhawDetails) {
+        bhawDetails=bhawDetails.toLowerCase().replaceAll("rs", "").trim();
+        int value=Integer.parseInt(bhawDetails);
+        if (value>=50000){
+            return true;
+        }
+
+        return false;
+    }
+
 
     @NonNull
     @Override
