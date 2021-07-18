@@ -59,7 +59,7 @@ public class HomeFragment extends Fragment {
     RecyclerView recyclerView;
     Button share;
     ConstraintLayout constraintLayout;
-    TextView news_feed,news_feed_1,watermark;
+    TextView news_feed_1,news_feed_2,watermark;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -111,13 +111,13 @@ public class HomeFragment extends Fragment {
 
         final View root = inflater.inflate(R.layout.fragment_home, container, false);
 
-        news_feed=root.findViewById(R.id.news_feed_1);
+        news_feed_1=root.findViewById(R.id.news_feed_1);
 
         TextView textView =root.findViewById(R.id.news_feed_1);
         textView.setEllipsize(TextUtils.TruncateAt.MARQUEE);
         textView.setSelected(true);
 
-        news_feed_1=root.findViewById(R.id.news_feed_2);
+        news_feed_2=root.findViewById(R.id.news_feed_2);
 
         TextView textView1 =root.findViewById(R.id.news_feed_2);
         textView1.setEllipsize(TextUtils.TruncateAt.MARQUEE);
@@ -142,6 +142,8 @@ public class HomeFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        onSlidingNews();
 
         RecyclerView rvSlideshow = getView().findViewById(R.id.rv_slideshow_images);
         rvSlideshow.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false));
@@ -242,14 +244,16 @@ public class HomeFragment extends Fragment {
     }
 
     public void onSlidingNews() {
-        reff = FirebaseDatabase.getInstance().getReference().child("SlidingNews");
+        DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference().child("SlidingNews");
 
-        reff.addValueEventListener(new ValueEventListener() {
+        databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String news = dataSnapshot.child("News").getValue().toString();
+                String news1 = dataSnapshot.child("news1").getValue().toString();
+                String news2 = dataSnapshot.child("news2").getValue().toString();
 
-                i.setText(news);
+                news_feed_1.setText(news1);
+                news_feed_2.setText(news2);
             }
 
             @Override
